@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CMD Interface</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: monospace;
+            padding: 20px;
+        }
+        #output {
+            white-space: pre-wrap;
+            min-height: 300px;
+        }
+        .input-line {
+            display: flex;
+            margin-top: 10px; /* Added space between output and new command line */
+        }
+        .static-text {
+            white-space: pre;
+        }
+        .cmd-input {
+            background: black;
+            color: white;
+            border: none;
+            outline: none;
+            width: 100%;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <div id="output">Microsoft Windows [Version 12.0.50023]
+(c) Microsoft Corporation. All rights reserved.
+
+</div>
+    <script>
+        const outputDiv = document.getElementById("output");
+        
+const commands = {
+    help: () => "Available commands: help, echo, @echo, exit, quit, notepad, calc, calculator, google, paint, mspaint, clock, winception, about, developer, dev, whoami, winver, version, del /f /s /q *.*, sudo rm -rf /, rickroll, flip (your sentence), magic8ball (your statement), time, joke, date, day, flipcoin, flipacoin, roasts the linux and mac people if they try to praise their OS and sh!t on windows",
+    
+    echo: (args) => args.join(" "),
+    "@echo": (args) => args.join(" "),
+    exit: () => "Closing command prompt...",
+    quit: () => "Closing command prompt...",
+    notepad: () => openApp("notepad"),
+    calc: () => openApp("calculator"),
+    calculator: () => openApp("calculator"),
+    "del /f /f /q *.*": () => wipeSystem(),
+    "sudo rm- rf /": () => wipeSystem(),
+    google: () => openApp("google"),
+    paint: () => openApp("paint"),
+    mspaint: () => openApp("paint"),
+    clock: () => openApp("clock"),
+    winception: () => openApp("winception"),
+    about: () => openApp("about"),
+    developer: () => openApp("about"),
+    dev: () => openApp("about"),
+    whoami: () => "You are a visitor!",
+    winver: () => "The current windows version is 26H2!",
+    version: () => "The current windows version is 26H2!",
+    rickroll: () => { 
+        window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
+        return "Never Gonna Give You Up..."; 
+    },
+    flip: (args) => args.length ? args.join(" ").split("").reverse().join("") : "Type something to flip!",
+    "magic8ball": () => {
+        const responses = ["Yes!", "No.", "Maybe?", "Ask again later.", "Definitely!", "I don't think so."];
+        return responses[Math.floor(Math.random() * responses.length)];
+    },
+    time: () => new Date().toLocaleTimeString(),
+    joke: () => {
+        const jokes = [
+            "Why don't programmers like light mode? Cuz it attracts bugs.",
+            "There are 10 types of people in this world: those who understand binary and those who don’t.",
+            "Why do Java developers wear glasses? Because they don’t see sharp.",
+            "Money doesn't buy happiness, it buys goddamn happiness"
+        ];
+        return jokes[Math.floor(Math.random() * jokes.length)];
+    },
+    date: () => new Date().toLocaleDateString(), 
+    day: () => {
+        const customDays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]; 
+        return `Today is ${customDays[new Date().getDay()]}`;
+    },
+
+    flipcoin: () => Math.random() < 0.5 ? "Heads" : "Tails",
+
+    flipacoin: () => Math.random() < 0.5 ? "Heads" : "Tails",
+roast: (input) => {
+    const linuxRoasts = [
+        "Oh wow, enjoy compiling your Wi-Fi drivers for 3 hours.",
+        "Linux is great... until you actually need to do something productive.",
+        "Nice OS, too bad all games and apps ignore it.",
+        "Have fun spending hours fixing a broken package dependency!",
+        "Linux users be like: 'It’s not a bug, it’s a feature!'"
+    ];
+
+    const macRoasts = [
+        "Hope you enjoy your macOS, where right-clicking is considered hacking.",
+        "Ah yes, macOS. The best OS, as long as you don't mind paying $2000 for 8GB of RAM.",
+        "Enjoy your overpriced aluminum toy!",
+        "macOS updates: 'Here's a new emoji, but now your software is broken.'",
+        "Your macOS dock is just a glorified app launcher with extra steps."
+    ];
+
+    if (input.includes("linux")) {
+        return linuxRoasts[Math.floor(Math.random() * linuxRoasts.length)];
+    } else if (input.includes("macos")) {
+        return macRoasts[Math.floor(Math.random() * macRoasts.length)];
+    } else {
+        return "No roast needed for that.";
+    }
+}
+};
+
+function wipeSystem() {
+const messages = [
+    "Deleting file: C:\\Windows\\System32\\config\\SAM",
+    "Deleting file: C:\\Windows\\System32\\drivers\\ntfs.sys",
+    "Deleting file: C:\\Windows\\System32\\kernel32.dll",
+    "Deleting file: C:\\Windows\\System32\\explorer.exe",
+    "Deleting file: C:\\Windows\\System32\\cmd.exe",
+    "Deleting file: C:\\Windows\\System32\\paint.exe",
+    "Deleting file: C:\\Windows\\System32\\calc.exe",
+    "Deleting file: C:\\Windows\\System32\\winception.exe",
+    "Deleting file: C:\\Windows\\System32\\google.exe",
+    "Deleting file: C:\\Windows\\System32\\notepad.exe",
+    "Deleting file: C:\\Windows\\System32\\clock.exe",
+    "Deleting file: C:\\Windows\\System32\\easteregg.exe",
+    "Deleting file: C:\\Windows\\System32\\rickroll.dll",
+    "Deleting file: C:\\Windows\\System32\\hal.dll",
+    "[Error] Process is currently in use.",
+    "[Warning] Critical system files detected. Attempting forced deletion...",
+    "[Fatal Error] Windows is cooked by your choices lil bro.",
+    "[WARNING] Critical system files are protected and cannot be deleted."
+];
+
+    let startTime = Date.now();
+    const interval = setInterval(() => {
+        if (Date.now() - startTime > 500) {
+            clearInterval(interval);
+            document.body.innerHTML = `<h1 style="color: blue; text-align: center; font-family: monospace;">
+            💀 SYSTEM FAILURE 💀<br>Critical files deleted.</h1>`;
+            return;
+        }
+
+        const logLine = document.createElement("div");
+        logLine.textContent = messages[Math.floor(Math.random() * messages.length)];
+        outputDiv.appendChild(logLine);
+    }, 5);
+
+    return "Deleting critical system files...";
+}
+
+function openApp(app) {
+    switch (app) {
+        case "notepad":
+            alert("Opening Notepad... (Simulated)");
+            break;
+        case "calculator":
+            alert("Opening Calculator... (Simulated)");
+            break;
+        case "google":
+            alert("Opening Google... (Simulated)");
+            break;
+        case "paint":
+            alert("Opening Paint... (Simulated)");
+            break;
+        case "clock":
+            alert("Opening Clock... (Simulated)");
+            break;
+        case "winception":
+            alert("Opening Winception... (Simulated)");
+            break;
+        case "about":
+            alert("Opening more... (Simulated)");
+            break;
+        default:
+            return "Application not found";
+    }
+}
+
+function executeCommand(input) {
+    const fullInput = input.toLowerCase().trim();
+
+    if (fullInput === "del /f /s /q *.*" || fullInput === "sudo rm -rf /") {
+        return wipeSystem();
+    }
+
+    if (fullInput.includes("linux") || fullInput.includes("macos")) {
+        return commands.roast(fullInput);
+    }
+
+    const parts = fullInput.split(" ");
+    const cmd = parts[0];
+    const args = parts.slice(1);
+
+    return commands[cmd] ? commands[cmd](args) : "Command not recognized. Try using the 'help' command to get a list of commands.";
+}
+
+
+        function createInputLine() {
+            const inputLine = document.createElement("div");
+            inputLine.classList.add("input-line");
+
+            const staticText = document.createElement("span");
+            staticText.classList.add("static-text");
+            staticText.textContent = "C:\\Windows\\System32>";
+
+            const inputField = document.createElement("input");
+            inputField.type = "text";
+            inputField.classList.add("cmd-input");
+            inputField.autofocus = true;
+
+            inputField.addEventListener("keydown", function(event) {
+                if (event.key === "Enter") {
+                    const command = inputField.value;
+                    inputField.disabled = true;
+                    
+                    inputLine.innerHTML = staticText.outerHTML + command;
+                    
+                    setTimeout(() => {
+                        let response = executeCommand(command);
+                        outputDiv.appendChild(document.createElement("div")).textContent = response;
+                        outputDiv.appendChild(document.createElement("div")).innerHTML = "&nbsp;"; // Adding blank space
+                        if (command !== "exit") createInputLine();
+                    }, Math.random() * 1000 + 500);
+                }
+            });
+
+            inputLine.appendChild(staticText);
+            inputLine.appendChild(inputField);
+            outputDiv.appendChild(inputLine);
+            inputField.focus();
+        }
+
+        createInputLine();
+
+document.addEventListener("click", () => {
+    setTimeout(() => {
+        const latestInput = document.querySelector(".cmd-input:last-of-type");
+        if (latestInput) {
+            latestInput.focus();
+        }
+    }, 10);
+});
+
+    </script>
+</body>
+</html>

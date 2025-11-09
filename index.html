@@ -1,0 +1,742 @@
+<!-- Hand Crafted With Love By Team Mohaned :D -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>Windows 12 Concept</title>
+    <link rel="icon" href="https://raw.githubusercontent.com/immobilesmile70/Windows-12-web/main/assets/favicon.ico"
+        type="image/x-icon" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json" />
+</head>
+
+<body>
+    <div id="monitor" class="monitor-container"
+        style="user-select: none; -moz-user-select: none; -ms-user-select: none;">
+
+        <div class="conparent not" id="containerB">
+            <div class="container">
+                <div id="sad-face">:(</div>
+                <div id="message">
+                    Your device ran into a problem and needs to restart.
+                    We're just collecting some error info, and then we'll shut it down for you.
+                </div>
+                <div id="percentage">0% complete</div>
+                <div class="qr-error">
+                    <div id="qr-code">
+                        <img src="https://raw.githubusercontent.com/immobilesmile70/Windows-12-web/main/assets/Backgrounds/BSOD%20QR.webp"
+                            alt="QR Code">
+                    </div>
+                    <div class="error-info">
+                        <div class="error-help">For more info about this issue and possible fixes, visit <br>
+                            http://windows.com/stopcode </div>
+                        <div id="error-code">Stop Code: 0x6EJ69B1E</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="loading_screen" class="screen hid">
+            <p class="load_status_text" id="load_status" style="user-select: none; font-size: 3rem; font-weight:bold;">
+                Starting Up</p>
+            <span id="spinner2" class="spinner"></span>
+        </div>
+
+        <div id="booting-up_screen" class="screen hid">
+            <div class="windows-logo_ini" style="user-select: none;">
+                <div class="logo-part_ini part11"></div>
+                <div class="logo-part_ini part12"></div>
+                <div class="logo-part_ini part13"></div>
+                <div class="logo-part_ini part14"></div>
+            </div>
+            <div class="spinner">
+                <span id="spinner1" class="spinner"></span>
+                <div id="faulty-text">Preparing Automatic Repair</div>
+            </div>
+
+            <footer id="footer-text">
+                <p class="made" style="font-size:0.75rem; user-select: none;">Made by Team Mohaned</p>
+            </footer>
+        </div>
+
+        <div id="user-start_screen" class="screen">
+            <div id="spc" style="user-select: none;  z-index: 9999999;" class="startPc"></div>
+            <p style="font-size: 1rem; position:absolute; bottom: 30px; color: white; text-align: center;"> This project
+                looks best in <b>fullscreen</b>, so please press the <b>F11</b> key to make this window
+                <b>fullscreen</b>.
+            </p>
+        </div>
+
+        <div id="lock_screen" class="screen hid">
+            <img id="BG" draggable="false" style="user-select: none;" />
+            <div class="lockflex">
+                <div id="time" class="timeText" style="user-select: none;"><span id="current_time"></span>
+                    <div id="date" class="dateText" style="user-select: none;"><span id="current_date"></span>
+                    </div>
+                </div>
+                <div id="sweep" class="tex" style="display:none;">Swipe Up To Unlock</div>
+            </div>
+            <div id="enter_pass" class="passflex">
+                <img id="User_Icon" draggable="false" style="user-select: none;" />
+                <div id="User_Name" class="username" style="user-select: none;">Administrator</div>
+                <div id="input_flex" class="inputflex">
+                    <input type="password" style="user-select: none;" inputmode="numeric" pattern="[0-9]*" maxlength="4"
+                        required id="password" class="pass" placeholder="Enter Pin" />
+                    <button id="unlock_button" class="unlock" style="user-select: none;"><svg width="36px" height="36px"
+                            viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M15.795 11.272L7.795 16.272C6.79593 16.8964 5.5 16.1782 5.5 15L5.5 5.00002C5.5 3.82186 6.79593 3.1036 7.795 3.72802L15.795 8.72802C16.735 9.31552 16.735 10.6845 15.795 11.272Z"
+                                fill="#fff" />
+                        </svg></button>
+                </div>
+                <div id="wrong_pass" style="user-select: none;">
+                    <span id="pass_fallback" style="font-size: 1.5rem">Provide a pin.</span>
+                    <button id="wpass_close_btn">OK</button>
+                </div>
+                <div class="passhint" style="user-select: none;">Password Hint: First Four Natural Numbers</div>
+                <button id="shutbut2" style="user-select: none;" class="shutdown-button"
+                    style="background-size: 30px 30px; border-radius: 10px; height: 60px; width: 60px;"></button>
+            </div>
+
+        </div>
+
+        <div id="Desktop" class="screen hid">
+            <div class="overlay"></div>
+            <div id="context-menu" class="context-menu">
+                <ul>
+                    <li class="context-menu-item" onclick="genericFn()"><img
+                            src="https://raw.githubusercontent.com/immobilesmile70/Windows-12-web/main/assets/Vector%20Icons/Context%20Menu/View.webp?raw=true"
+                            alt="View"><span>View</span><span class="submenu-arrow"><img
+                                src="https://raw.githubusercontent.com/immobilesmile70/Windows-12-web/main/assets/Vector%20Icons/Context%20Menu/Triangle%20Right.webp?raw=true"
+                                alt="tri"></span></li>
+                    <li class="context-menu-item" onclick="genericFn()"><img
+                            src="https://raw.githubusercontent.com/immobilesmile70/Windows-12-web/main/assets/Vector%20Icons/Context%20Menu/Sort%20By.webp?raw=true"
+                            alt="Sort by"><span>Sort by</span><span class="submenu-arrow"><img
+                                src="https://raw.githubusercontent.com/immobilesmile70/Windows-12-web/main/assets/Vector%20Icons/Context%20Menu/Triangle%20Right.webp?raw=true"
+                                alt="tri"></span></li>
+                    <div class="dividr"></div>
+                    <li class="context-menu-item" onclick="genericFn()"><img
+                            src="https://raw.githubusercontent.com/immobilesmile70/Windows-12-web/main/assets/Vector%20Icons/Context%20Menu/Refresh.webp?raw=true"
+                            alt="Refresh"><span>Refresh</span></li>
+                    <li class="context-menu-item" onclick="genericFn()"><img
+                            src="https://raw.githubusercontent.com/immobilesmile70/Windows-12-web/main/assets/Vector%20Icons/Context%20Menu/New.webp?raw=true"
+                            alt="New"><span>New</span><span class="submenu-arrow"><img
+                                src="https://raw.githubusercontent.com/immobilesmile70/Windows-12-web/main/assets/Vector%20Icons/Context%20Menu/Triangle%20Right.webp?raw=true"
+                                alt="tri"></span></li>
+                    <div class="dividr"></div>
+                    <li class="context-menu-item" onclick="genericFn()"><img
+                            src="https://raw.githubusercontent.com/immobilesmile70/Windows-12-web/main/assets/Vector%20Icons/Context%20Menu/Display%20Settings.webp?raw=true"
+                            alt="Display settings"><span>Display settings</span></li>
+                    <li class="context-menu-item" onclick="genericFn()"><img
+                            src="https://raw.githubusercontent.com/immobilesmile70/Windows-12-web/main/assets/Vector%20Icons/Context%20Menu/Personalize.webp?raw=true"
+                            alt="Personalize"><span>Personalize</span></li>
+                </ul>
+            </div>
+
+            <div class="start-menu hidden" id="start-menu">
+                <div class="app-buttons">
+                    <div id="clock-app-btn" draggable="false" class="app-button">
+                        <img src="https://raw.githubusercontent.com/immobilesmile70/Windows-12-web/main/assets/App%20Icons/Clock.webp?raw=true"
+                            alt="Clock" draggable="false">
+                        <span>Clock</span>
+                    </div>
+                    <div id="calculator-app-btn" draggable="false" class="app-button">
+                        <img src="https://raw.githubusercontent.com/immobilesmile70/Windows-12-web/main/assets/App%20Icons/Calculator.webp?raw=true"
+                            alt="Calculator" draggable="false">
+                        <span>Calculator</span>
+                    </div>
+                    <div id="paint-app-btn" draggable="false" class="app-button">
+                        <img src="https://raw.githubusercontent.com/immobilesmile70/Windows-12-web/main/assets/App%20Icons/Paint.webp?raw=true"
+                            alt="Paint" draggable="false">
+                        <span>Paint</span>
+                    </div>
+                    <div id="google-app-btn" draggable="false" class="app-button">
+                        <img src="https://raw.githubusercontent.com/immobilesmile70/Windows-12-web/main/assets/App%20Icons/Google.webp?raw=true"
+                            alt="Google" draggable="false">
+                        <span>Google</span>
+                    </div>
+                    <div id="win-app-btn" draggable="false" class="app-button">
+                        <img src="https://raw.githubusercontent.com/immobilesmile70/Windows-12-web/main/assets/App%20Icons/Winception.webp?raw=true"
+                            alt="Windows" draggable="false">
+                        <span>Winception</span>
+                    </div>
+                    <div id="notepad-app-btn" draggable="false" class="app-button">
+                        <img src="https://raw.githubusercontent.com/immobilesmile70/Windows-12-web/main/assets/App%20Icons/Notepad.webp?raw=true"
+                            alt="Notepad" draggable="false">
+                        <span>Notepad</span>
+                    </div>
+                    <div id="cmd-app-btn" draggable="false" class="app-button">
+                        <img src="https://raw.githubusercontent.com/immobilesmile70/Windows-12-web/main/assets/App%20Icons/CMD.webp?raw=true"
+                            alt="cmd" draggable="false">
+                        <span>CMD</span>
+                    </div>
+                    <div id="ee-app-btn" draggable="false" class="app-button">
+                        <img src="https://raw.githubusercontent.com/immobilesmile70/Windows-12-web/main/assets/App%20Icons/Github.webp?raw=true"
+                            alt="Github" draggable="false">
+                        <span>Github</span>
+                    </div>
+                </div>
+
+                <div class="bottom-right-chip" id="usebut">
+                    <img draggable="false"
+                        src="https://raw.githubusercontent.com/immobilesmile70/Windows-12-web/main/assets/Backgrounds/Default%20Profile%20Photo.webp?raw=true"
+                        alt="Chip Icon" class="chip-icon">
+                    <span class="chip-text">Administrator</span>
+                </div>
+
+                <button id="shutbut" class="shutdown-button"></button>
+            </div>
+
+            <div class="quick-settings" id="quick-settings">
+                <div class="top-section">
+                    <div class="wifi-bluetooth-group">
+                        <button class="toggle-button active"
+                            style="height: 40px;justify-content: left;display: flex;font-size: 0.7rem;"><svg
+                                style="margin-left: 2px;margin-right: 2px;" width="20px" height="20px"
+                                viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="1" cy="1" r="1" transform="matrix(1 0 0 -1 11 19)" fill="#fff" />
+                                <path
+                                    d="M20.1915 10.2642C19.2864 8.97153 18.0881 7.9114 16.6947 7.17053C15.3014 6.42965 13.7524 6.02907 12.1746 6.00152C10.5967 5.97398 9.03471 6.32026 7.61632 7.01206C6.19793 7.70385 4.9634 8.72152 4.01367 9.98185M17.7341 12.985C17.1005 12.0801 16.2617 11.338 15.2863 10.8194C14.311 10.3008 13.2267 10.0203 12.1222 10.0011C11.0177 9.98179 9.9243 10.2242 8.93143 10.7084C7.93856 11.1927 7.07439 11.9051 6.40958 12.7873M14.4575 15.2793C14.1859 14.8915 13.8265 14.5734 13.4084 14.3512C12.9904 14.1289 12.5257 14.0087 12.0524 14.0005C11.579 13.9922 11.1104 14.0961 10.6849 14.3036C10.2594 14.5112 9.88904 14.8165 9.60412 15.1946"
+                                    stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>Wi-Fi</button>
+                        <button class="toggle-button active"
+                            style="height: 40px;justify-content: space-evenly;font-size: 0.73rem;"><svg width="35px"
+                                height="35px" viewBox="0 -0.5 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M14.4849 5.18684L17.135 7.21184C17.3806 7.40257 17.525 7.70032 17.525 8.01634C17.525 8.33235 17.3806 8.63011 17.135 8.82084L12.9815 11.9948L17.135 15.1688C17.3806 15.3596 17.525 15.6573 17.525 15.9733C17.525 16.2893 17.3806 16.5871 17.135 16.7778L14.4849 18.8028C14.1939 19.021 13.8072 19.0505 13.4879 18.8789C13.1686 18.7073 12.9722 18.3644 12.9815 17.9948V5.99484C12.9722 5.62524 13.1686 5.28241 13.4879 5.11081C13.8072 4.93922 14.1939 4.9687 14.4849 5.18684V5.18684Z"
+                                    stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M7.77496 9.01083L12.9815 11.9948L7.77496 14.9788" stroke="#fff"
+                                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>Bluetooth</button>
+                    </div>
+
+                    <div class="slider-group">
+                        <input type="range" class="sliderr" min="0" max="100" value="100" draggable="false"
+                            id="brightness-slider">
+                        <svg id="sun-icon"
+                            style="position: absolute;left: calc(100% - 95px);top: calc(100% - 142px);pointer-events: none;"
+                            width="22px" height="22px" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M12 3V4M12 20V21M4 12H3M6.31412 6.31412L5.5 5.5M17.6859 6.31412L18.5 5.5M6.31412 17.69L5.5 18.5001M17.6859 17.69L18.5 18.5001M21 12H20M16 12C16 14.2091 14.2091 16 12 16C9.79086 16 8 14.2091 8 12C8 9.79086 9.79086 8 12 8C14.2091 8 16 9.79086 16 12Z"
+                                stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        <input type="range" class="sliderr" min="0" max="100" value="50" draggable="false">
+                        <svg style="position: absolute;left: calc(100% - 41px);top: calc(100% - 141px);pointer-events: none;"
+                            width="20px" height="20px" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <g id="Media / Volume_Max">
+                                <path id="Vector"
+                                    d="M18.82 4.68652C19.8191 5.61821 20.6167 6.74472 21.1636 7.99657C21.7105 9.24842 21.9952 10.5991 21.9999 11.9652C22.0047 13.3313 21.7295 14.6838 21.1914 15.9395C20.6532 17.1951 19.8635 18.3272 18.8709 19.2658M16.092 7.61194C16.6915 8.17095 17.17 8.84686 17.4982 9.59797C17.8263 10.3491 17.9971 11.1595 18 11.9791C18.0028 12.7988 17.8377 13.6103 17.5148 14.3637C17.1919 15.1171 16.7181 15.7963 16.1225 16.3595M7.4803 15.4069L9.15553 17.48C10.0288 18.5607 10.4655 19.1011 10.848 19.1599C11.1792 19.2108 11.5138 19.0925 11.7394 18.8448C12 18.5586 12 17.8638 12 16.4744V7.52572C12 6.13627 12 5.44155 11.7394 5.15536C11.5138 4.90761 11.1792 4.78929 10.848 4.84021C10.4655 4.89904 10.0288 5.43939 9.15553 6.52009L7.4803 8.59319C7.30388 8.81151 7.21567 8.92067 7.10652 8.99922C7.00982 9.06881 6.90147 9.12056 6.78656 9.15204C6.65687 9.18756 6.51652 9.18756 6.23583 9.18756H4.8125C4.0563 9.18756 3.6782 9.18756 3.37264 9.2885C2.77131 9.48716 2.2996 9.95887 2.10094 10.5602C2 10.8658 2 11.2439 2 12.0001C2 12.7563 2 13.1344 2.10094 13.4399C2.2996 14.0413 2.77131 14.513 3.37264 14.7116C3.6782 14.8126 4.0563 14.8126 4.8125 14.8126H6.23583C6.51652 14.8126 6.65687 14.8126 6.78656 14.8481C6.90147 14.8796 7.00982 14.9313 7.10652 15.0009C7.21567 15.0794 7.30388 15.1886 7.4803 15.4069Z"
+                                    stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </g>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="bottom-section">
+                    <button class="toggle-button" style="width: 40px;"><svg fill="#fff" width="30px" height="30px"
+                            viewBox="0 0 24 24" data-name="Line Color" xmlns="http://www.w3.org/2000/svg">
+                            <path id="primary"
+                                d="M10,20h2.11a1,1,0,0,0,.81-.42L16.84,14H19a2,2,0,0,0,2-2h0a2,2,0,0,0-2-2H16.84L12.92,4.42A1,1,0,0,0,12.11,4H10l1,6H8L6.29,8.29A1,1,0,0,0,5.59,8H3l2,4L3,16H5.59a1,1,0,0,0,.7-.29L8,14h3Z"
+                                style="fill: none; stroke: rgb(255, 255, 255); stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;">
+                            </path>
+                        </svg></button>
+                    <button class="toggle-button" style="width: 40px;"><svg width="30px" height="30px"
+                            viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                <g id="ic_fluent_battery_saver_24_regular" fill="#fff" fill-rule="nonzero">
+                                    <path
+                                        d="M7.37459793,4.34137476 C7.68452344,3.86394559 8.39245135,3.89222013 8.66331348,4.39284588 C10.2179297,7.26619287 11.0037767,9.47715073 11.0037767,11.0803426 C11.0037767,12.765924 10.39257,14.0617927 9.17393508,14.8776553 C8.82973756,15.1080917 8.36390471,15.0158701 8.13346829,14.6716726 C7.90303187,14.3274751 7.99525346,13.8616422 8.33945097,13.6312058 C9.11692763,13.1106938 9.50377671,12.2905038 9.50377671,11.0803426 C9.50377671,10.0215399 9.02452027,8.48168925 8.05662019,6.49081547 L7.88073996,6.13480901 L7.63194361,6.4035557 C7.28858869,6.76131482 6.89874563,7.11683704 6.46262619,7.47062881 L6.12686309,7.73565609 L5.21391139,8.43259362 C3.84736858,9.51102793 3.40808517,10.2260191 3.51452802,11.4863368 C3.61149856,12.6344992 4.25897122,13.3176425 5.61742734,13.6125757 C6.23348697,12.2558744 6.52744481,10.9765033 6.50914153,9.77046715 C6.50285599,9.35630128 6.83350832,9.01545807 7.24767419,9.00917252 C7.66184006,9.00288698 8.00268327,9.33353932 8.00896882,9.74770518 C8.03119281,11.2120845 7.6747993,12.7352778 6.94802584,14.3136874 C6.1847857,15.9712955 4.86911904,17.1883579 3.03599216,17.946947 C2.65325583,18.1053319 2.2145904,17.9234592 2.05620549,17.5407229 C1.89782059,17.1579865 2.07969335,16.7193211 2.46242968,16.5609362 C3.42638213,16.162031 4.1970589,15.6237504 4.78387001,14.94127 C3.1238917,14.4221188 2.16176731,13.2929277 2.01984933,11.6125731 C1.86086676,9.73016828 2.556485,8.62015565 4.29212381,7.24939192 L5.12865455,6.61077824 L5.49812196,6.32152723 C6.33097189,5.64834818 6.95575131,4.986593 7.37459793,4.34137476 Z M11.75,6 L17,6 C18.597725,6 19.903664,7.24892392 19.9949075,8.82372764 L20,9 L20,10 L21.0006474,10.0178372 C21.1827474,10.0178372 21.3535474,10.0665372 21.5006474,10.1516372 C21.7663363,10.3053261 21.9547511,10.5777705 21.993341,10.8963494 L22.0006474,11.0178372 L22.0006474,13.0178372 C22.0006474,13.3879372 21.7995474,13.7111372 21.5006474,13.8840372 C21.3903224,13.9478622 21.2666662,13.9912122 21.1349099,14.0088981 L21.0006474,14.0178372 L20,14 L20,15 C20,16.597725 18.7511226,17.903664 17.1762773,17.9949075 L17,18 L6.75,18 C6.33578644,18 6,17.6642136 6,17.25 C6,16.8703042 6.28215388,16.556509 6.64822944,16.5068466 L6.75,16.5 L17,16.5 C17.7796706,16.5 18.4204457,15.9050879 18.4931332,15.1444558 L18.5,15 L18.5,9 C18.5,8.22030118 17.9050879,7.579551 17.1444558,7.50686655 L17,7.5 L11.75,7.5 C11.3357864,7.5 11,7.16421356 11,6.75 C11,6.37030423 11.2821539,6.05650904 11.6482294,6.00684662 L11.75,6 L17,6 L11.75,6 Z"
+                                        id="🎨-Color">
+
+                                    </path>
+                                </g>
+                            </g>
+                        </svg></button>
+                    <button class="toggle-button active" style="width: 40px;"><svg width="30px" height="30px"
+                            viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M12 22C17.5228 22 22 17.5228 22 12C22 11.5373 21.3065 11.4608 21.0672 11.8568C19.9289 13.7406 17.8615 15 15.5 15C11.9101 15 9 12.0899 9 8.5C9 6.13845 10.2594 4.07105 12.1432 2.93276C12.5392 2.69347 12.4627 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
+                                fill="#fff" />
+                        </svg></button>
+                    <button class="toggle-button" style="width: 40px;"><svg width="30px" height="30px"
+                            viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                            <circle fill="none" stroke="#fff" stroke-linejoin="round" stroke-width="32" cx="256" cy="56"
+                                r="40" />
+                            <path fill="none" stroke="#fff" stroke-linejoin="round" stroke-width="32"
+                                d="M204.23,274.44c2.9-18.06,4.2-35.52-.5-47.59-4-10.38-12.7-16.19-23.2-20.15L88,176.76c-12-4-23.21-10.7-24-23.94-1-17,14-28,29-24,0,0,88,31.14,163,31.14s162-31,162-31c18-5,30,9,30,23.79,0,14.21-11,19.21-24,23.94l-88,31.91c-8,3-21,9-26,18.18-6,10.75-5,29.53-2.1,47.59l5.9,29.63L351.21,467.9c2.8,13.15-6.3,25.44-19.4,27.74S308,489,304.12,476.28L266.56,360.35q-2.71-8.34-4.8-16.87L256,320l-5.3,21.65q-2.52,10.35-5.8,20.48L208,476.18c-4,12.85-14.5,21.75-27.6,19.46S158,480.05,160.94,467.9l37.39-163.83Z" />
+                        </svg></button>
+                    <button class="toggle-button" style="width: 40px;"><svg fill="#fff" width="30px" height="30px"
+                            viewBox="0 0 24 24" id="mobile-hotspot" data-name="Flat Line"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path id="primary" d="M12,13v8M9,21h6"
+                                style="fill: none; stroke: rgb(255, 255, 255); stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;">
+                            </path>
+                            <line id="primary-upstroke" x1="11.95" y1="12" x2="12.05" y2="12"
+                                style="fill: none; stroke: rgb(255, 255, 255); stroke-linecap: round; stroke-linejoin: round; stroke-width: 2.5;">
+                            </line>
+                            <path id="primary-2" data-name="primary" d="M5.64,18.36a9,9,0,1,1,12.72,0"
+                                style="fill: none; stroke: rgb(255, 255, 255); stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;">
+                            </path>
+                            <path id="primary-3" data-name="primary" d="M15.54,15.54a5,5,0,1,0-7.08,0"
+                                style="fill: none; stroke: rgb(255, 255, 255); stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;">
+                            </path>
+                        </svg></button>
+                    <button class="toggle-button" style="width: 40px;"><svg width="30px" height="30px"
+                            viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M17 21.75H16C15.59 21.75 15.25 21.41 15.25 21C15.25 20.59 15.59 20.25 16 20.25H17C19.58 20.25 21.25 18.58 21.25 16V8C21.25 5.42 19.58 3.75 17 3.75H7C4.42 3.75 2.75 5.42 2.75 8V9C2.75 9.41 2.41 9.75 2 9.75C1.59 9.75 1.25 9.41 1.25 9V8C1.25 4.56 3.56 2.25 7 2.25H17C20.44 2.25 22.75 4.56 22.75 8V16C22.75 19.44 20.44 21.75 17 21.75Z"
+                                fill="#fff" />
+                            <path
+                                d="M12.2902 21.06C11.9202 21.06 11.6002 20.78 11.5502 20.41C11.0002 16.13 7.88017 13 3.59017 12.45C3.18017 12.4 2.89018 12.0199 2.94018 11.6099C2.99018 11.1999 3.37017 10.91 3.78017 10.96C8.76017 11.6 12.4002 15.23 13.0302 20.21C13.0802 20.62 12.7902 20.9999 12.3802 21.0499C12.3602 21.0599 12.3202 21.06 12.2902 21.06Z"
+                                fill="#fff" />
+                            <path
+                                d="M8.92986 22.1299C8.55986 22.1299 8.23987 21.8499 8.18987 21.4799C7.79987 18.4299 5.56987 16.1999 2.51987 15.8099C2.10987 15.7599 1.81986 15.3799 1.86986 14.9699C1.91986 14.5599 2.29987 14.2699 2.70987 14.3199C6.45987 14.7999 9.18987 17.5399 9.66987 21.2799C9.71987 21.6899 9.42987 22.0699 9.01987 22.1199C8.98987 22.1299 8.95986 22.1299 8.92986 22.1299Z"
+                                fill="#fff" />
+                            <path
+                                d="M5.13022 22.77C4.76022 22.77 4.44022 22.49 4.39022 22.12C4.22022 20.77 3.23022 19.78 1.88022 19.61C1.47022 19.56 1.18021 19.18 1.23021 18.77C1.28021 18.36 1.66023 18.07 2.07023 18.12C4.09023 18.38 5.62022 19.91 5.88022 21.93C5.93022 22.34 5.64021 22.72 5.23021 22.77C5.20021 22.77 5.17022 22.77 5.13022 22.77Z"
+                                fill="#fff" />
+                        </svg></button>
+                    <button class="toggle-button" style="width: 40px;"><svg fill="#fff" width="30px" height="30px"
+                            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M4,14 C4,11.0544813 6.66666667,7.05448133 12,2 C17.3333333,7.05448133 20,11.0544813 20,14 C20,18.3349143 16.5521622,21.8645429 12.2491793,21.9961932 L12,22 C7.581722,22 4,18.418278 4,14 Z M12,4.793 L11.7832437,5.01193635 C7.89798368,8.95774552 6,12.0287291 6,14 C6,17.3137085 8.6862915,20 12,20 L12,4.793 Z" />
+                        </svg></button>
+                    <button class="toggle-button" style="width: 40px;"><svg width="25px" height="25px"
+                            viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M19.6495 0.799565C18.4834 -0.72981 16.0093 0.081426 16.0093 1.99313V3.91272C12.2371 3.86807 9.65665 5.16473 7.9378 6.97554C6.10034 8.9113 5.34458 11.3314 5.02788 12.9862C4.86954 13.8135 5.41223 14.4138 5.98257 14.6211C6.52743 14.8191 7.25549 14.7343 7.74136 14.1789C9.12036 12.6027 11.7995 10.4028 16.0093 10.5464V13.0069C16.0093 14.9186 18.4834 15.7298 19.6495 14.2004L23.3933 9.29034C24.2022 8.2294 24.2022 6.7706 23.3933 5.70966L19.6495 0.799565ZM7.48201 11.6095C9.28721 10.0341 11.8785 8.55568 16.0093 8.55568H17.0207C17.5792 8.55568 18.0319 9.00103 18.0319 9.55037L18.0317 13.0069L21.7754 8.09678C22.0451 7.74313 22.0451 7.25687 21.7754 6.90322L18.0317 1.99313V4.90738C18.0317 5.4567 17.579 5.90201 17.0205 5.90201H16.0093C11.4593 5.90201 9.41596 8.33314 9.41596 8.33314C8.47524 9.32418 7.86984 10.502 7.48201 11.6095Z"
+                                fill="#fff" />
+                            <path
+                                d="M7 1.00391H4C2.34315 1.00391 1 2.34705 1 4.00391V20.0039C1 21.6608 2.34315 23.0039 4 23.0039H20C21.6569 23.0039 23 21.6608 23 20.0039V17.0039C23 16.4516 22.5523 16.0039 22 16.0039C21.4477 16.0039 21 16.4516 21 17.0039V20.0039C21 20.5562 20.5523 21.0039 20 21.0039H4C3.44772 21.0039 3 20.5562 3 20.0039V4.00391C3 3.45162 3.44772 3.00391 4 3.00391H7C7.55228 3.00391 8 2.55619 8 2.00391C8 1.45162 7.55228 1.00391 7 1.00391Z"
+                                fill="#fff" />
+                        </svg></button>
+                </div>
+            </div>
+
+            <div id="clock-window" class="app-window hidden no-resize" style="backdrop-filter:blur(15px) contrast(1.2);">
+                <div class="window-header">
+                    <img src="https://raw.githubusercontent.com/immobilesmile70/Windows-12-web/main/assets/App%20Icons/Clock.webp?raw=true"
+                        alt="Clock">
+                    <span class="clo">Clock</span>
+                    <div class="window-controls">
+                        <button class="minimize-btn">-</button>
+                        <button class="maximize-btn" style="display: none;">▢</button>
+                        <button class="restore-btn" style="display: none;">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="7" width="13" height="13" rx="2" ry="2"></rect>
+                                <path d="M9 7V5a2 2 0 0 1 2-2h10v10a2 2 0 0 1-2 2h-2"></path>
+                            </svg>
+                        </button>
+                        <button class="close-btn">×</button>
+                    </div>
+                </div>
+
+                <div class="clock-window-content">
+                    <div class="watch-container">
+                        <canvas id="clock"></canvas>
+                    </div>
+                    <div class="clockAppFlex">
+                        <div class="AtimeText"><span id="clock_time"></span>
+                            <div class="AdateText"><span id="clock_date"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="google-window" class="app-window hidden">
+                <div class="window-header">
+                    <img src="https://raw.githubusercontent.com/immobilesmile70/Windows-12-web/main/assets/App%20Icons/Google.webp?raw=true"
+                        alt="Google" style="width: 13px; height: 13px;">
+                    <span class="clo">Google</span>
+                    <div class="window-controls">
+                        <button class="minimize-btn">-</button>
+                        <button class="maximize-btn">▢</button>
+                        <button class="restore-btn" style="display: none;"> <svg xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="7" width="13" height="13" rx="2" ry="2"></rect>
+                                <path d="M9 7V5a2 2 0 0 1 2-2h10v10a2 2 0 0 1-2 2h-2"></path>
+                            </svg>
+                        </button>
+                        <button class="close-btn">×</button>
+                    </div>
+                </div>
+
+                <div class="iframe-window-content">
+                    <iframe id="googleIframe" src="" width="100%" height="100%" style="border:none;"
+                        tabindex="-1"></iframe>
+                </div>
+            </div>
+
+            <div id="win-window" class="app-window hidden">
+                <div class="window-header">
+                    <img src="https://raw.githubusercontent.com/immobilesmile70/Windows-12-web/main/assets/App%20Icons/Winception.webp?raw=true"
+                        alt="Windows" style="width: 13px; height: 13px; top: 0;">
+                    <span class="clo">Winception</span>
+                    <div class="window-controls">
+                        <button class="minimize-btn">-</button>
+                        <button class="maximize-btn">▢</button>
+                        <button class="restore-btn" style="display: none;"> <svg xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="7" width="13" height="13" rx="2" ry="2"></rect>
+                                <path d="M9 7V5a2 2 0 0 1 2-2h10v10a2 2 0 0 1-2 2h-2"></path>
+                            </svg>
+                        </button>
+                        <button class="close-btn">×</button>
+                    </div>
+                </div>
+
+                <div class="iframe-window-content">
+                    <iframe id="winIframe" src="" width="100%" height="100%" style="border:none;"
+                        tabindex="-1"></iframe>
+                </div>
+            </div>
+
+            <div id="calculator-window" class="app-window hidden">
+                <div class="window-header">
+                    <img src="https://raw.githubusercontent.com/immobilesmile70/Windows-12-web/main/assets/App%20Icons/Calculator.webp?raw=true"
+                        alt="Calculator">
+                    <span class="clo">Calculator</span>
+                    <div class="window-controls">
+                        <button class="minimize-btn">-</button>
+                        <button class="maximize-btn">▢</button>
+                        <button class="restore-btn" style="display: none;"> <svg xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="7" width="13" height="13" rx="2" ry="2"></rect>
+                                <path d="M9 7V5a2 2 0 0 1 2-2h10v10a2 2 0 0 1-2 2h-2"></path>
+                            </svg>
+                        </button>
+                        <button class="close-btn">×</button>
+                    </div>
+                </div>
+                <div class="window-content">
+                    <div class="calculator-container" style="z-index: 0;">
+                        <div class="calculator">
+                            <input type="text" id="display">
+                            <div class="cbuttons">
+                                <button onclick="clearDisplay()" class="AC">AC</button>
+                                <button onclick="deleteLast()" class="Del">⌫</button>
+                                <button onclick="appendOperator('/')" class="Div">÷</button>
+                                <button onclick="appendOperator('*')" class="Multi">×</button>
+                                <button onclick="appendNumber(7)" class="butto">7</button>
+                                <button onclick="appendNumber(8)" class="butto">8</button>
+                                <button onclick="appendNumber(9)" class="butto">9</button>
+                                <button onclick="appendOperator('-')" class="Sub">-</button>
+                                <button onclick="appendNumber(4)" class="butto">4</button>
+                                <button onclick="appendNumber(5)" class="butto">5</button>
+                                <button onclick="appendNumber(6)" class="butto">6</button>
+                                <button onclick="appendOperator('+')" class="Add">+</button>
+                                <button onclick="appendNumber(1)" class="butto">1</button>
+                                <button onclick="appendNumber(2)" class="butto">2</button>
+                                <button onclick="appendNumber(3)" class="butto">3</button>
+                                <button onclick="appendNumber(0)" class="zero">0</button>
+                                <button onclick="appendDot()" class="butto">.</button>
+                                <button onclick="calculate()" class="equal">=</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="paint-window" class="app-window hidden">
+                <div class="window-header">
+                    <img src="https://raw.githubusercontent.com/immobilesmile70/Windows-12-web/main/assets/App%20Icons/Paint.webp?raw=true"
+                        alt="Paint">
+                    <span class="clo">Paint</span>
+                    <div class="window-controls">
+                        <button class="minimize-btn">-</button>
+                        <button class="maximize-btn">▢</button>
+                        <button class="restore-btn" style="display: none;"> <svg xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="7" width="13" height="13" rx="2" ry="2"></rect>
+                                <path d="M9 7V5a2 2 0 0 1 2-2h10v10a2 2 0 0 1-2 2h-2"></path>
+                            </svg>
+                        </button>
+                        <button class="close-btn">×</button>
+                    </div>
+                </div>
+                <div class="paint-window-content">
+                    <div class="window" id="mWindow">
+                        <div class="toolbar">
+                            <div class="color-section">
+                                <input type="color" id="colorPicker" class="penColor" value="#000000">
+                                <input type="color" id="eraserColorPicker" class="eraserColor" value="#333333">
+                                <p class="t1">Colors</p>
+                            </div>
+                            <div class="divider1"></div>
+                            <div class="size-section">
+                                <input type="range" id="brushSize" class="penSize" min="1" max="30" value="8">
+                                <input type="range" id="eraserSize" class="eraserSize" min="1" max="50" value="15">
+                                <p class="t2">Sizes</p>
+                            </div>
+                            <div class="divider2"></div>
+                            <div class="button-section">
+                                <button id="toggleEraser" class="togglePen"></button>
+                                <button id="clearButton" class="clearAll"></button>
+                                <p class="t3">Tools</p>
+                            </div>
+                        </div>
+                        <canvas id="paintCanvas" class="canva"></canvas>
+                        <div id="customPointer"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="ee-window" class="app-window hidden no-resize" style="backdrop-filter:blur(15px) contrast(1.2);">
+                <div class="for-glow">
+                    <div class="window-header">
+                        <img src="https://raw.githubusercontent.com/immobilesmile70/Windows-12-web/main/assets/App%20Icons/Github.webp?raw=true"
+                            alt="Github Pfp" draggable="false">
+                        <span class="eeClo">Github</span>
+                        <div class="window-controls">
+                            <button class="minimize-btn">-</button>
+                            <button class="maximize-btn" style="display: none;">▢</button>
+                            <button class="restore-btn" style="display: none;"> <svg xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="7" width="13" height="13" rx="2" ry="2"></rect>
+                                    <path d="M9 7V5a2 2 0 0 1 2-2h10v10a2 2 0 0 1-2 2h-2"></path>
+                                </svg>
+                            </button>
+                            <button class="close-btn">×</button>
+                        </div>
+                    </div>
+
+                    <div class="ee-window-content">
+                        <div class="card">
+                            <img src="https://raw.githubusercontent.com/immobilesmile70/Windows-12-web/main/assets/Backgrounds/Dev%20Photo.jpg"
+                                alt="Profile Photo" class="avatar">
+                            <div class="user-name">TeamM0HANED</div>
+                            <div class="user-info">TeamM0HANED | he/him</div>
+                            <div class="user-bio">Game Dev | Web Dev | UI/UX Enthusiast</div>
+                            <button class="github-btn" onclick="openGitHub()">View GitHub</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="notepad-window" class="app-window hidden" style="backdrop-filter:blur(15px) contrast(1.2);">
+                <div class="window-header" style="border: none; background: rgba(30, 30, 30, 0.5);">
+                    <img src="https://raw.githubusercontent.com/immobilesmile70/Windows-12-web/main/assets/App%20Icons/Notepad.webp?raw=true"
+                        alt="Notepad">
+                    <span class="clo">Notepad</span>
+                    <div class="window-controls">
+                        <button class="minimize-btn">-</button>
+                        <button class="maximize-btn">▢</button>
+                        <button class="restore-btn" style="display: none;"> <svg xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="7" width="13" height="13" rx="2" ry="2"></rect>
+                                <path d="M9 7V5a2 2 0 0 1 2-2h10v10a2 2 0 0 1-2 2h-2"></path>
+                            </svg>
+                        </button>
+                        <button class="close-btn">×</button>
+                    </div>
+                </div>
+                <div class="window-content">
+                    <div class="menu-bar">
+                        <div class="menu" id="file-menu">File
+                            <div class="dropdown">
+                                <div onclick="focusEditor(); openFile()"><img
+                                        src="https://raw.githubusercontent.com/immobilesmile70/Windows-12-web/main/assets/Vector%20Icons/Notepad/Open.webp?raw=true"
+                                        alt="Open">Open</div>
+                                <div onclick="focusEditor(); saveFile()"><img
+                                        src="https://raw.githubusercontent.com/immobilesmile70/Windows-12-web/main/assets/Vector%20Icons/Notepad/Save.webp?raw=true"
+                                        alt="Save">Save</div>
+                            </div>
+                        </div>
+                        <div class="menu" id="edit-menu">Edit
+                            <div class="dropdown">
+                                <div onclick="focusEditor(); cutText()"><img
+                                        src="https://raw.githubusercontent.com/immobilesmile70/Windows-12-web/main/assets/Vector%20Icons/Notepad/Cut.webp?raw=true"
+                                        alt="Cut">Cut</div>
+                                <div onclick="focusEditor(); copyText()"><img
+                                        src="https://raw.githubusercontent.com/immobilesmile70/Windows-12-web/main/assets/Vector%20Icons/Notepad/Copy.webp?raw=true"
+                                        alt="Copy">Copy</div>
+                                <div onclick="focusEditor(); pasteText()"><img
+                                        src="https://raw.githubusercontent.com/immobilesmile70/Windows-12-web/main/assets/Vector%20Icons/Notepad/Paste.webp?raw=true"
+                                        alt="Paste">Paste</div>
+                                <div onclick="focusEditor(); selectAll()"><img
+                                        src="https://raw.githubusercontent.com/immobilesmile70/Windows-12-web/main/assets/Vector%20Icons/Notepad/Select%20All.webp?raw=true"
+                                        alt="Select All">Select All</div>
+                            </div>
+                        </div>
+                    </div>
+                    <textarea id="editor" oninput="updateStats()" onkeyup="updateStats()"
+                        onmouseup="updateStats()"></textarea>
+                    <div id="footer">Ln: 1, Col: 1 | Characters: 0</div>
+                </div>
+            </div>
+
+            <div id="cmd-window" class="app-window hidden">
+                <div class="window-header" style="background-color: rgba(0, 0, 0, 0.4); border: none;">
+                    <img src="https://raw.githubusercontent.com/immobilesmile70/Windows-12-web/main/assets/App%20Icons/CMD.webp?raw=true"
+                        alt="cmd">
+                    <span class="clo">Command Prompt</span>
+                    <div class="window-controls">
+                        <button class="minimize-btn">-</button>
+                        <button class="maximize-btn">▢</button>
+                        <button class="restore-btn" style="display: none;"> <svg xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="7" width="13" height="13" rx="2" ry="2"></rect>
+                                <path d="M9 7V5a2 2 0 0 1 2-2h10v10a2 2 0 0 1-2 2h-2"></path>
+                            </svg>
+                        </button>
+                        <button class="close-btn">×</button>
+                    </div>
+                </div>
+                <div class="window-content" style="background: rgba(0, 0, 0, 0.4); padding-left: 5px;">
+                    <div id="output">Macrohard Windows [Version 12.0.50023]
+                        (c) Macrohard Corporation. Some rights reserved.
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="desktop-grid" id="desktop-grid">
+                <div class="icon" draggable="true" id="paintDIcon"><img
+                        src="https://raw.githubusercontent.com/immobilesmile70/Windows-12-web/main/assets/App%20Icons/Paint.webp?raw=true"
+                        alt="Paint">Paint</div>
+                <div class="icon" draggable="true" id="CalculatorDIcon"><img
+                        src="https://raw.githubusercontent.com/immobilesmile70/Windows-12-web/main/assets/App%20Icons/Calculator.webp?raw=true"
+                        alt="Calculator">Calculator</div>
+                <div class="icon" draggable="true" id="ClockDIcon"><img
+                        src="https://raw.githubusercontent.com/immobilesmile70/Windows-12-web/main/assets/App%20Icons/Clock.webp?raw=true"
+                        alt="Clock">Clock</div>
+                <div class="icon" draggable="true" id="GoogleDIcon"><img
+                        src="https://raw.githubusercontent.com/immobilesmile70/Windows-12-web/main/assets/App%20Icons/Google.webp?raw=true"
+                        alt="Google">Google</div>
+                <div class="icon" draggable="true" id="WindowsDIcon"><img
+                        src="https://raw.githubusercontent.com/immobilesmile70/Windows-12-web/main/assets/App%20Icons/Winception.webp?raw=true"
+                        alt="Windows">Winception</div>
+                <div class="icon" draggable="true" id="noteDIcon"><img
+                        src="https://raw.githubusercontent.com/immobilesmile70/Windows-12-web/main/assets/App%20Icons/Notepad.webp?raw=true"
+                        alt="Notepad">Notepad</div>
+                <div class="icon" draggable="true" id="cmdDIcon"><img
+                        src="https://raw.githubusercontent.com/immobilesmile70/Windows-12-web/main/assets/App%20Icons/CMD.webp?raw=true"
+                        alt="cmd">CMD</div>
+                <div class="icon" draggable="true" id="moreDIcon"><img
+                        src="https://raw.githubusercontent.com/immobilesmile70/Windows-12-web/main/assets/App%20Icons/Github.webp?raw=true"
+                        alt="More">Github</div>
+            </div>
+
+            <div id="taskbar" class="taskbar">
+                <button id="win-logo" class="taskbar-logo">
+                    <div id="win-logo-shadow" class="windows-logo">
+                        <div class="logo-part part1"></div>
+                        <div class="logo-part part2"></div>
+                        <div class="logo-part part3"></div>
+                        <div class="logo-part part4"></div>
+                    </div>
+                </button>
+
+                <div class="taskbar-flex">
+                    <div class="tile hidden hide" id="tile0"><img
+                            src="https://raw.githubusercontent.com/immobilesmile70/Windows-12-web/main/assets/App%20Icons/Paint.webp?raw=true"
+                            alt="Paint" draggable="false"></div>
+                    <div class="tile hidden hide" id="tile1"><img
+                            src="https://raw.githubusercontent.com/immobilesmile70/Windows-12-web/main/assets/App%20Icons/Calculator.webp?raw=true"
+                            alt="Calculator" draggable="false"></div>
+                    <div class="tile hidden hide" id="tile2"><img
+                            src="https://raw.githubusercontent.com/immobilesmile70/Windows-12-web/main/assets/App%20Icons/Clock.webp?raw=true"
+                            alt="Clock" draggable="false"></div>
+                    <div class="tile hidden hide" id="tile3"><img
+                            src="https://raw.githubusercontent.com/immobilesmile70/Windows-12-web/main/assets/App%20Icons/Google.webp?raw=true"
+                            alt="Google" draggable="false"></div>
+                    <div class="tile hidden hide" id="tile4"><img
+                            src="https://raw.githubusercontent.com/immobilesmile70/Windows-12-web/main/assets/App%20Icons/Winception.webp?raw=true"
+                            alt="Windows" draggable="false"></div>
+                    <div class="tile hidden hide" id="tile6"><img
+                            src="https://raw.githubusercontent.com/immobilesmile70/Windows-12-web/main/assets/App%20Icons/Github.webp?raw=true"
+                            alt="Github" draggable="false"></div>
+                    <div class="tile hidden hide" id="tile5"><img
+                            src="https://raw.githubusercontent.com/immobilesmile70/Windows-12-web/main/assets/App%20Icons/Notepad.webp?raw=true"
+                            alt="Notepad" draggable="false"></div>
+                    <div class="tile hidden hide" id="tile7"><img
+                            src="https://raw.githubusercontent.com/immobilesmile70/Windows-12-web/main/assets/App%20Icons/CMD.webp?raw=true"
+                            alt="CMD" draggable="false"></div>
+                </div>
+
+                <div id="win-toast" class="icon-container">
+                    <svg width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="1" cy="1" r="1" transform="matrix(1 0 0 -1 11 19)" fill="#fff" />
+                        <path
+                            d="M20.1915 10.2642C19.2864 8.97153 18.0881 7.9114 16.6947 7.17053C15.3014 6.42965 13.7524 6.02907 12.1746 6.00152C10.5967 5.97398 9.03471 6.32026 7.61632 7.01206C6.19793 7.70385 4.9634 8.72152 4.01367 9.98185M17.7341 12.985C17.1005 12.0801 16.2617 11.338 15.2863 10.8194C14.311 10.3008 13.2267 10.0203 12.1222 10.0011C11.0177 9.98179 9.9243 10.2242 8.93143 10.7084C7.93856 11.1927 7.07439 11.9051 6.40958 12.7873M14.4575 15.2793C14.1859 14.8915 13.8265 14.5734 13.4084 14.3512C12.9904 14.1289 12.5257 14.0087 12.0524 14.0005C11.579 13.9922 11.1104 14.0961 10.6849 14.3036C10.2594 14.5112 9.88904 14.8165 9.60412 15.1946"
+                            stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    <img src="https://raw.githubusercontent.com/immobilesmile70/Windows-12-web/main/assets/Vector%20Icons/Taskbar/Volume.webp?raw=true"
+                        alt="Icon 2">
+                    <div class="battery-container">
+                        <div class="battery">
+                            <div class="battery-fill"></div>
+                            <span class="battery-percentage">50</span>
+                        </div>
+                    </div>
+                </div>
+                <button id="win-clock" class="taskbar-clock">
+                    <span id="taskbar_time" style="font-size: 0.75rem;">00:00</span>
+                    <span id="taskbar_date" style="font-size: 0.6rem;">00-00-0000</span>
+                </button>
+            </div>
+        </div>
+
+        <div id="screensaver" class="screensaver sshidden">
+            <div class="textw">
+                <p id="A">Windows 12</p>
+                <p id="B">Windows 12</p>
+                <p id="C">Windows 12</p>
+                <p id="D">Windows 12</p>
+                <p id="E">Windows 12</p>
+                <p id="F">Windows 12</p>
+                <p id="G">Windows 12</p>
+            </div>
+        </div>
+
+    </div>
+
+    <audio id="button-click">
+        <source
+            src="https://raw.githubusercontent.com/immobilesmile70/Windows-12-web/main/assets/Sound%20FX/Click%20Sound.ogg?raw=true"
+            type="audio/ogg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <audio id="startup">
+        <source
+            src="https://raw.githubusercontent.com/immobilesmile70/Windows-12-web/main/assets/Sound%20FX/Startup%20Sound.ogg?raw=true"
+            type="audio/ogg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <audio id="logoff">
+        <source
+            src="https://raw.githubusercontent.com/immobilesmile70/Windows-12-web/main/assets/Sound%20FX/Shutdown%20Sound.ogg?raw=true"
+            type="audio/ogg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <audio id="paintAudio">
+        <source
+            src="https://www.dropbox.com/scl/fi/juh7wl24yz6z4eq4kz5v4/Paint_FX.mp3?rlkey=wws5twvzgqvzl53qphx530132&st=9sq4xrh2&raw=1"
+            type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script src="script.js"></script>
+
+    <script defer src="/_vercel/insights/script.js"></script>
+</body>
+
+</html>

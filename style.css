@@ -1,0 +1,2455 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe-UI', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    height: 100vh;
+    background-color: #000000;
+    overflow: hidden;
+}
+
+.startPc {
+    width: 85px;
+    height: 95px;
+    background: url(https://raw.githubusercontent.com/immobilesmile70/Windows-12-web/main/assets/Vector%20Icons/Taskbar/Shutdown.webp?raw=true) no-repeat;
+    background-size: 100px;
+    background-position-y: 50%;
+    background-position-x: 48%;
+    background-color: rgba(70, 70, 70, 0.6);
+    border: none;
+    padding: 10px 15px;
+    border-radius: 22px;
+}
+
+.lockflex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.passflex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    opacity: 0;
+    transition: transform 0.4s ease-in-out, filter 0.3s ease-in-out, scale 0.4s ease-in-out, opacity 0.15s ease-in-out;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    filter: blur(0px);
+    scale: 1;
+}
+
+.passflex.sldo {
+    opacity: 1;
+    transition: transform 0.4s ease-in-out, filter 0.3s ease-in-out, scale 0.4s ease-in-out, opacity 0.65s ease-in-out;
+}
+
+.inputflex {
+    position: static;
+    margin-bottom: 20px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 300px;
+    height: 80px;
+    display: flex;
+}
+
+.timeText {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-weight: bold;
+    color: white;
+    font-size: 5.5rem;
+    top: 60px;
+    transition: transform 0.4s ease-in-out, scale 0.4s ease-in-out;
+    filter: blur(0px);
+    text-shadow: 0 8px 15px rgba(0, 0, 0, 0.8);
+}
+
+.dateText {
+    position: relative;
+    font-weight: bold;
+    color: white;
+    font-size: 1.5rem;
+    top: 1px;
+    text-shadow: 0 8px 15px rgba(0, 0, 0, 0.8);
+}
+
+#User_Icon {
+    position: static;
+    margin-bottom: 15px;
+    width: 155px;
+    height: 155px;
+    background: url(https://raw.githubusercontent.com/immobilesmile70/Windows-12-web/main/assets/Backgrounds/Default%20Profile%20Photo.webp?raw=true);
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.pass {
+    width: 200px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.15);
+    color: white;
+    padding: 8px;
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    margin: 0px;
+    font-size: 1.5rem;
+    text-align: center;
+    flex-grow: 0.8;
+}
+
+input.pass {
+    outline: none !important;
+    border: none !important;
+}
+
+input.pass:focus {
+    outline: none !important;
+    border: none !important;
+}
+
+input.pass:active,
+input.pass:visited,
+input.pass:hover {
+    outline: none !important;
+    border: none !important;
+    border: 1px solid transparent;
+}
+
+.passhint {
+    position: static;
+    margin: 0px;
+    color: white;
+}
+
+.username {
+    position: static;
+    margin-bottom: 15px;
+    font-size: 2rem;
+    color: white;
+    font-weight: bold;
+}
+
+.unlock {
+    width: 56px;
+    height: 56px;
+    border-radius: 10px;
+    flex-shrink: 0;
+    font-weight: bold;
+    text-align: center;
+    border: none;
+    color: white;
+    background-color: rgba(255, 255, 255, 0.15);
+    -webkit-tap-highlight-color: transparent;
+    transition: background-color 0.2s ease-in-out;
+    margin: 0px;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.unlock:hover {
+    background-color: rgba(50, 50, 50, 0.4);
+}
+
+.tex {
+    position: absolute;
+    bottom: 50px;
+    font-weight: bold;
+    font-size: 21px;
+    color: white;
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    scale: 1;
+    transition: transform 0.4s ease-in-out, scale 0.4s ease-in-out;
+}
+
+.monitor-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    min-height: 400px;
+    background-color: black;
+    background-size: cover;
+}
+
+#loading_screen {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    transition: opacity 1.5s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    color: white;
+    font-size: 20px;
+}
+
+#booting-up_screen {
+    justify-content: space-around;
+}
+
+@font-face {
+    font-family: 'SegoeBootSpinner';
+    src: url('https://raw.githubusercontent.com/immobilesmile70/Windows-12-web/main/assets/Fonts/segoe_slboot.ttf') format('truetype');
+}
+
+.spinner {
+    font-family: 'SegoeBootSpinner';
+    font-size: 2rem;
+    user-select: none;
+    display: block;
+    position: relative;
+}
+
+.load-status-text {
+    position: absolute;
+    top: 350px;
+    color: white;
+    justify-content: center;
+}
+
+.screen {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #000000;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    pointer-events: none;
+}
+
+.screen.hid {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    pointer-events: none;
+}
+
+.removeDOM {
+    display: none;
+}
+
+.screen.visible {
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+    pointer-events: auto;
+    display: flex;
+}
+
+#booting-up_screen {
+    color: #fff;
+    text-align: center;
+}
+
+#booting-up_screen h1 {
+    font-size: 2rem;
+    animation: glowing 2s infinite;
+}
+
+@keyframes glowing {
+    0% {
+        text-shadow: 0 0 20px #ff00ff, 0 0 30px #ff00ff, 0 0 40px #ff00ff, 0 0 50px #ff00ff;
+    }
+
+    100% {
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #ff00ff, 0 0 40px #ff00ff;
+    }
+}
+
+#footer-text {
+    position: absolute;
+    bottom: 4px;
+    right: 10px;
+    font-size: 0.05rem;
+    color: #fff;
+}
+
+#lock_screen h1 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+#BG {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('https://raw.githubusercontent.com/immobilesmile70/Windows-12-web/main/assets/Backgrounds/Wallpaper.jpg?raw=true');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: blur(0px);
+    transform: scale(1.02);
+    transition: filter 0.6s ease-in-out, transform 0.65s ease-in-out, scale 0.6s ease-in-out;
+}
+
+#lock_screen select {
+    padding: 8px;
+    margin-top: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+}
+
+#Desktop {
+    background-image: url('https://raw.githubusercontent.com/immobilesmile70/Windows-12-web/main/assets/Backgrounds/Wallpaper.jpg?raw=true');
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-align: center;
+    background-position: center;
+}
+
+#Desktop h1 {
+    font-size: 2rem;
+    color: #fff;
+}
+
+#controls button {
+    font-size: 1rem;
+    padding: 10px 20px;
+    margin-top: 20px;
+    border-radius: 5px;
+}
+
+.taskbar {
+    position: fixed;
+    bottom: 11px;
+    width: calc(100% - 20px);
+    height: 40px;
+    background-color: rgba(50, 50, 50, 0.4);
+    backdrop-filter: blur(9px) contrast(1.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    box-sizing: border-box;
+    border-top: 1px solid #444;
+    border-radius: 8px;
+    overflow: hidden;
+    z-index: 2550;
+    opacity: 0;
+    transform: translateY(1025px) scaleX(0.4);
+    transition: opacity 1s ease, transform 0.35s ease;
+}
+
+.taskbar.show {
+    opacity: 1;
+    transform: translateY(0px) scaleX(1);
+}
+
+#taskbar-hover {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: transparent;
+    z-index: 9999;
+}
+
+.taskbar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(50, 50, 50, 0);
+    filter: blur(18px);
+    z-index: -1;
+}
+
+.taskbar-flex {
+    position: relative;
+    top: auto;
+    left: 35px;
+    justify-content: flex-start;
+    display: inline-flex;
+    gap: 7px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: calc(100% - 160px);
+    bottom: auto;
+    right: auto;
+    height: 100%;
+    align-items: center;
+    transition: transform 0.3s, opacity 0.3s, margin 0.3s ease-in-out;
+}
+
+.tile {
+    width: 35px;
+    height: 35px;
+    background-color: rgba(255, 255, 255, 0);
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease, opacity 0.2s, margin 0.3s ease-in-out, width 0.3s ease, background-color 0.3s ease, border-top 0.2s ease;
+    position: relative;
+    border-top: 0px solid rgba(0, 0, 0, 0);
+}
+
+.tile img {
+    width: 75%;
+    height: 75%;
+    transition: transform 0.3s ease, opacity 0.2s, margin 0.3s ease-in-out, width 0.3s ease, background-color 0.3s ease, border-top 0.2s ease;
+}
+
+.tile img:active {
+    transform: scale(0.85);
+}
+
+.tile img:hover {
+    transform: scale(1.05);
+}
+
+.tile:hover {
+    background: rgba(150, 150, 150, 0.17);
+}
+
+.hidden {
+    width: 0px;
+    transform: scaleY(0);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.3s ease, opacity 0.2s, margin 0.3s ease-in-out, width 0.3s ease, background-color 0.3s ease, border-top 0.2s ease;
+}
+
+.tile.hide {
+    position: absolute;
+    transition: transform 0.3s ease, opacity 0.2s, margin 0.3s ease-in-out, width 0.3s ease, background-color 0.3s ease, border-top 0.2s ease;
+}
+
+.tile.selected {
+    background-color: rgba(120, 120, 120, 0.25);
+    border-top: 1px solid rgba(100, 100, 100);
+    transition: transform 0.3s ease, opacity 0.2s, margin 0.3s ease-in-out, width 0.3s ease, background-color 0.3s ease, border-top 0.2s ease;
+}
+
+
+.tile.selected::after {
+    width: 25px;
+    height: 6px;
+    background: rgba(0, 120, 212, 0.8);
+    filter: blur(5px);
+    opacity: 1;
+    bottom: -3.5px;
+    transition: all 0.3s ease-in-out;
+}
+
+.tile::after {
+    content: "";
+    position: absolute;
+    bottom: 0px;
+    left: 50%;
+    width: 6px;
+    height: 3px;
+    border-radius: 50px;
+    background: rgba(150, 150, 150, 1);
+    transform: translateX(-50%);
+    filter: blur(0px);
+    opacity: 1;
+    transition: all 0.3s ease-in-out;
+}
+
+.icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    border-radius: 9px;
+    position: absolute;
+    margin-right: 2px;
+    right: 47px;
+    gap: 3px;
+    box-sizing: content-box;
+    width: 100px;
+    height: 30px;
+    transform: translateY(500px) scale(0.2);
+    transition: opacity 1s ease, transform 0.5s ease, background-color 0.3s ease;
+}
+
+.icon-container:hover {
+    background-color: rgba(170, 170, 170, 0.15);
+}
+
+.icon-container.show {
+    opacity: 1;
+    transform: translateY(0px) scale(0.7);
+    transition: opacity 1s ease, transform 0.5s ease, background-color 0.3s ease;
+}
+
+.icon-container img {
+    width: 25.5px;
+    height: 25.5px;
+    margin-right: 2.5px;
+}
+
+.battery-container {
+    display: flex;
+    align-items: center;
+    font-size: 1.5em;
+    transform: scale(1);
+    width: 30px;
+    height: 12px;
+    padding-right: 6px;
+    box-sizing: content-box;
+}
+
+.battery {
+    width: 50px;
+    height: 25px;
+    border: 2px solid white;
+    position: relative;
+    border-radius: 100px;
+    background: transparent;
+    height: 11px;
+    width: 30px;
+    display: flex;
+    align-items: center;
+    padding: 2px;
+}
+
+.battery::after {
+    content: "";
+    width: 2px;
+    height: 5px;
+    background: white;
+    position: absolute;
+    right: -5px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 50px;
+}
+
+.battery-fill {
+    position: relative;
+    height: 20%;
+    background: white;
+    width: 50%;
+    transition: width 0.5s;
+    border-radius: 100px;
+    padding: 5px;
+}
+
+.battery-percentage {
+    text-align: center;
+    line-height: 25px;
+    display: block;
+    color: black;
+    width: 84%;
+    position: absolute;
+    -webkit-text-stroke: 2px white;
+    font-weight: bolder;
+    font-size: 0.8rem;
+    padding-top: 1px;
+}
+
+.taskbar-logo {
+    position: absolute;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    width: 50px;
+    background-color: transparent;
+    flex: 1;
+    border: none;
+    left: -0.85px;
+    z-index: 10;
+    opacity: 0;
+    transform: translateY(500px) scale(0.1);
+    transition: opacity 1s ease, transform 0.5s ease;
+}
+
+.taskbar-logo.show {
+    opacity: 1;
+    transform: translateY(0px) scale(1);
+}
+
+.windows-logo {
+    width: 30px;
+    height: 30px;
+    position: relative;
+    background-color: transparent;
+    z-index: 1;
+    transition: transform 0.15s ease, box-shadow 0.3s ease-in-out;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.windows-logo:hover {
+    box-shadow: 0 0 14px rgba(0, 120, 215, 0.5);
+}
+
+.windows-logo:active {
+    transform: scale(0.8);
+}
+
+.windows-logo.open {
+    box-shadow: 0 0 40px rgba(0, 120, 215, 1);
+    transition: transform 0.15s ease, box-shadow 0.3s ease-in-out;
+}
+
+.logo-part {
+    width: 14px;
+    height: 14px;
+    background-color: #2790c4;
+    position: absolute;
+    border-radius: 1px;
+}
+
+@keyframes hoverOut {
+
+    0%,
+    100% {
+        filter: brightness(1);
+    }
+
+    50% {
+        filter: brightness(1.5);
+    }
+}
+
+.part1 {
+    top: 0;
+    left: 0;
+}
+
+.part2 {
+    top: 0;
+    right: 0;
+}
+
+.part3 {
+    bottom: 0;
+    right: 0;
+}
+
+.part4 {
+    bottom: 0;
+    left: 0;
+}
+
+.part1 {
+    animation-delay: 0.1s;
+}
+
+.part2 {
+    animation-delay: 0.4s;
+}
+
+.part3 {
+    animation-delay: 0.7s;
+}
+
+.part4 {
+    animation-delay: 1s;
+}
+
+.windows-logo_ini {
+    width: 125px;
+    height: 125px;
+    position: relative;
+    opacity: 1;
+    transform: scale(1);
+}
+
+.logo-part_ini {
+    width: 59px;
+    height: 59px;
+    position: absolute;
+    background-color: #0078D7;
+    animation: popOut 2.5s ease-in-out forwards infinite, breathing 2s ease-in-out infinite;
+}
+
+.part11 {
+    top: 0;
+    left: 0;
+    border-radius: 15px 2px 2px 2px;
+}
+
+.part12 {
+    top: 0;
+    right: 0;
+    border-radius: 2px 15px 2px 2px;
+}
+
+.part13 {
+    bottom: 0;
+    left: 0;
+    border-radius: 2px 2px 2px 15px;
+}
+
+.part14 {
+    bottom: 0;
+    right: 0;
+    border-radius: 2px 2px 15px 2px;
+}
+
+@keyframes popOut {
+
+    0%,
+    100% {
+        opacity: 0.4;
+        transform: scale(0.5);
+        filter: brightness(0.8);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1);
+        filter: brightness(1);
+    }
+}
+
+@keyframes breathing {
+
+    0%,
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 20px rgba(0, 120, 215, 0.7);
+    }
+
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 50px rgba(0, 120, 215, 1);
+    }
+}
+
+.part11 {
+    animation-delay: 0.1s;
+}
+
+.part12 {
+    animation-delay: 0.3s;
+}
+
+.part13 {
+    animation-delay: 0.5s;
+}
+
+.part14 {
+    animation-delay: 0.7s;
+}
+
+.taskbar-clock span {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.taskbar-clock {
+    position: absolute;
+    font-size: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    color: #fff;
+    flex: 1;
+    flex-direction: column;
+    gap: 4px;
+    width: 55px;
+    padding: 0;
+    margin-right: 7.5px;
+    border: none;
+    right: -0.85px;
+    z-index: 10;
+    font-weight: bold;
+    border-radius: 5px;
+    opacity: 0;
+    transform: translateY(500px) scale(0.1);
+    transition: opacity 1s ease, transform 0.5s ease, background-color 0.3s ease;
+}
+
+.taskbar-clock:hover {
+    background-color: rgba(170, 170, 170, 0.15);
+}
+
+.taskbar-clock.show {
+    opacity: 1;
+    transform: translateY(0px) scale(1);
+    transition: opacity 1s ease, transform 0.5s ease, background-color 0.3s ease;
+}
+
+.start-menu {
+    position: fixed;
+    width: 300px;
+    height: 220px;
+    background-color: rgba(50, 50, 50, 0.4);
+    backdrop-filter: blur(16px) contrast(1.2);
+    bottom: 60px;
+    left: 10.5px;
+    opacity: 0;
+    transform: translateY(300px);
+    transition: opacity 0.15s ease, transform 0.25s linear(0 0%, 0 1.8%, 0.01 3.6%, 0.03 6.35%, 0.07 9.1%, 0.13 11.4%, 0.19 13.4%, 0.27 15%, 0.34 16.1%, 0.54 18.35%, 0.66 20.6%, 0.72 22.4%, 0.77 24.6%, 0.81 27.3%, 0.85 30.4%, 0.88 35.1%, 0.92 40.6%, 0.94 47.2%, 0.96 55%, 0.98 64%, 0.99 74.4%, 1 86.4%, 1 100%);
+    border-radius: 7px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 5px 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 2500;
+    border: 1px solid rgba(50, 50, 50, 1);
+}
+
+.start-menu.show {
+    opacity: 1;
+    transform: translateY(-2px);
+}
+
+.app-buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    background-color: rgba(70, 70, 70, 0.25);
+    padding: 10px;
+    border-radius: 7px;
+    width: calc(100% - 20px);
+    height: calc(100% - 80px);
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgb(57 53 57 / 78%);
+}
+
+.app-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(60, 60, 60, 0.15);
+    border-radius: 7px;
+    padding: 10px;
+    box-shadow: 0px 1px 5px 1px rgba(0, 0, 0, 0.25);
+    transition: background-color 0.3s ease;
+    border: 1px solid rgb(57 53 57 / 78%);
+}
+
+.app-button img {
+    width: 30px;
+    height: 30px;
+    margin-bottom: 5px;
+}
+
+.app-button span {
+    font-size: 8px;
+    color: white;
+    font-weight: bold;
+}
+
+.app-button:hover {
+    background-color: rgba(35, 35, 35, 0.4);
+}
+
+.bottom-right-chip {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: rgba(70, 70, 70, 0.3);
+    padding-left: 8px;
+    border-radius: 7px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    width: 87px;
+    height: 30.5px;
+    transition: background-color 0.3s ease;
+    position: fixed;
+    bottom: 15px;
+    border: 1px solid rgb(57 53 57 / 78%);
+}
+
+.bottom-right-chip:hover {
+    background-color: rgba(50, 50, 50, 0.4);
+}
+
+.chip-icon {
+    width: 15px;
+    height: 15px;
+    overflow: hidden;
+    border-radius: 20px;
+    background-color: rgba(70, 70, 70, 0.43);
+    margin-right: 5px;
+}
+
+.chip-text {
+    font-size: 9px;
+    color: white;
+    font-weight: bold;
+}
+
+.shutdown-button {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    background: url("https://raw.githubusercontent.com/immobilesmile70/Windows-12-web/main/assets/Vector%20Icons/Taskbar/Shutdown.webp?raw=true") no-repeat;
+    box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.2);
+    background-position-x: 50%;
+    background-position-y: 50%;
+    background-size: 15px 15px;
+    background-color: rgba(70, 70, 70, 0.3);
+    border: 1px solid rgb(57 53 57 / 78%);
+    padding: 10px;
+    border-radius: 7px;
+    font-size: 14px;
+    height: 30px;
+    width: 30px;
+    -webkit-tap-highlight-color: transparent;
+    transition: background-color 0.3s ease;
+}
+
+.shutdown-button:hover {
+    background-color: rgba(50, 50, 50, 0.4);
+}
+
+.start-menu::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(50, 50, 50, 0);
+    filter: blur(0px);
+    z-index: -1;
+}
+
+.hidden {
+    opacity: 0;
+    transform: translateY(300px);
+    pointer-events: none;
+}
+
+.app-window {
+    width: 100px;
+    height: 175px;
+    position: absolute;
+    top: 100px;
+    left: 150px;
+    background-color: rgba(50, 50, 50, 0.28);
+    backdrop-filter: blur(20px) contrast(1.2);
+    border: 0.02px solid rgba(60, 60, 60, 0.7);
+    box-shadow: 0 0 25px 3px rgba(0, 0, 0, 0.5);
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border-radius: 7px;
+    opacity: 0;
+    transition:
+        opacity 0.25s ease-in-out,
+        transform 0.35s cubic-bezier(0.2, 0.6, 0.3, 1),
+        width 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+        height 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+        top 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+        left 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+}
+
+.app-window.dragging,
+.app-window.open.dragging,
+.app-window.minimized.dragging,
+.app-window.hidden.dragging {
+    transition: opacity 0.25s ease-in-out, transform 0.35s ease;
+}
+
+.app-window::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(50, 50, 50, 0.5);
+    filter: blur(16px);
+    z-index: -1;
+}
+
+.window-header {
+    background-color: rgba(25, 25, 25, 0.5);
+    color: white;
+    font-size: 10px;
+    height: 16px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 0.02px solid rgba(60, 60, 60, 0.7);
+    user-select: none;
+}
+
+.window-header img {
+    position: relative;
+    width: 15px;
+    height: 15px;
+    padding-left: 3px;
+    top: 1px;
+}
+
+.clo {
+    position: relative;
+    padding-top: 2.5px;
+    font-weight: bold;
+    flex-grow: 0;
+    padding-left: 3px;
+}
+
+.eeClo {
+    position: relative;
+    background: linear-gradient(to right, #ffa900, #ffffff, #29b000);
+    background-clip: text;
+    color: transparent;
+    padding-top: 2.5px;
+    font-weight: bold;
+    flex-grow: 0;
+    padding-left: 3px;
+}
+
+.window-controls {
+    display: flex;
+    gap: 5px;
+    margin-left: auto;
+    margin-right: 5px;
+}
+
+.window-controls button {
+    position: relative;
+    height: 16px;
+    width: 16px;
+    font-size: 10px;
+    border-radius: 7px;
+    text-align: center;
+    background-color: rgba(80, 80, 80, 0.7);
+    border: none;
+    color: white;
+    font-weight: bold;
+    cursor: default;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-tap-highlight-color: transparent;
+    transition: background-color 0.3s ease;
+}
+
+.minimize-btn:hover {
+    background-color: rgba(120, 120, 120, 0.7);
+}
+
+.maximize-btn:hover {
+    background-color: rgba(120, 120, 120, 0.7);
+}
+
+.restore-btn:hover {
+    background-color: rgba(120, 120, 120, 0.7);
+}
+
+.close-btn:hover {
+    background-color: rgba(255, 30, 30, 0.7);
+}
+
+.window-controls button svg {
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    flex-shrink: 0.25;
+    line-height: 1;
+    vertical-align: middle;
+}
+
+.window-controls button span {
+    display: inline-block;
+    line-height: 1;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.window-content {
+    flex: 2;
+    padding: 0px;
+    overflow: hidden;
+}
+
+.app-window.hidden {
+    opacity: 0;
+    transform: scale(0);
+    transition:
+        opacity 0.25s ease-in-out,
+        transform 0.35s cubic-bezier(0.2, 0.6, 0.3, 1),
+        width 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+        height 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+        top 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+        left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+}
+
+.app-window.minimized {
+    opacity: 0;
+    transform: scale(0);
+    transition:
+        opacity 0.25s ease-in-out,
+        transform 0.35s cubic-bezier(0.2, 0.6, 0.3, 1),
+        width 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+        height 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+        top 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+        left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+}
+
+.app-window.mini,
+.app-window.open.mini,
+.app-window.minimized.mini,
+.app-window.hidden.mini {
+    opacity: 0;
+    transform: scale(0);
+    pointer-events: none;
+    transition:
+        opacity 0.25s ease-in-out,
+        transform 0.35s cubic-bezier(0.2, 0.6, 0.3, 1),
+        width 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+        height 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+        top 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+        left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.app-window.open {
+    display: flex;
+    opacity: 1;
+    transition:
+        opacity 0.2s ease-in-out,
+        transform 0.6s cubic-bezier(0.2, 0.6, 0.3, 1),
+        width 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+        height 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+        top 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+        left 0.27s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: auto;
+    transform: scale(1);
+}
+
+.context-menu {
+    display: block;
+    border-radius: 8px;
+    opacity: 0;
+    position: absolute;
+    background-color: rgba(51, 51, 51, 0.4);
+    z-index: 9999;
+    border: 0.02px solid rgba(60, 60, 60, 0.7);
+    width: 200px;
+    transform: scale(0) translateY(-300px) translateX(-200px) rotateZ(-10deg);
+    transition: opacity 0.2s ease, transform 0.25s ease;
+    backdrop-filter: blur(16px) contrast(1.2);
+    box-shadow: 0 0 25px 3px rgba(0, 0, 0, 0.5);
+}
+
+.context-menu::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(51, 51, 51, 0);
+    filter: blur(16px);
+    z-index: -1;
+}
+
+.context-menu.show {
+    opacity: 1;
+    transform: scale(1) translateY(0) translateX(0) rotateZ(0);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.context-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.context-menu-item {
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    gap: 10px;
+    z-index: 10001;
+    color: white;
+    border-radius: 8px;
+    text-align: left;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dividr {
+    height: 2px;
+    margin-bottom: 1px;
+    margin-top: 1px;
+    background: rgba(150, 150, 150, 0.15);
+    margin-left: calc(100% - 190px);
+    border-radius: 50px;
+    width: 90%;
+}
+
+.context-menu-item:hover {
+    background-color: rgba(100, 100, 100, 0.4);
+    z-index: 10000;
+}
+
+.context-menu img {
+    width: 16px;
+    height: 16px;
+    filter: brightness(0.8);
+}
+
+.submenu-arrow {
+    position: absolute;
+    right: 10px;
+}
+
+.submenu-arrow img {
+    height: 11px;
+    width: auto;
+    display: block;
+}
+
+.screensaver {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 1);
+    opacity: 0;
+    transition: opacity 0.6s ease-in-out;
+    background: linear-gradient(45deg, rgba(0, 0, 0, 1), rgba(0, 0, 0, 1));
+    background-size: 200% 200%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+}
+
+.sshidden {
+    pointer-events: none;
+}
+
+.ssvisible {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.textw {
+    position: relative;
+    perspective: 100000px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform-style: preserve-3d;
+    animation: rotate 3.5s linear infinite;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotateX(-3deg) rotateY(0deg);
+    }
+
+    100% {
+        transform: rotateX(-3deg) rotateY(360deg);
+    }
+}
+
+.textw p {
+    font-size: 4.2rem;
+    font-weight: bolder;
+    font-family: segoe ui;
+    position: absolute;
+}
+
+#A {
+    color: rgba(200, 200, 200, 1);
+    transform: translateZ(-1px);
+}
+
+#B {
+    color: grey;
+    transform: translateZ(-2px);
+}
+
+#C {
+    color: grey;
+    transform: translateZ(-3px);
+}
+
+#D {
+    color: grey;
+    transform: translateZ(-4px);
+}
+
+#E {
+    color: grey;
+    transform: translateZ(-5px);
+}
+
+#F {
+    color: grey;
+    transform: translateZ(-6px);
+}
+
+#G {
+    color: #696969;
+    transform: translateZ(-7px);
+}
+
+.watch-container {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 100px;
+    left: calc(100% - 100px);
+    border-radius: 0%;
+    box-shadow: 0 45px 45px rgba(0, 0, 0, 0);
+    top: calc(100% - 145px);
+}
+
+canvas {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0);
+    border-radius: 0%;
+}
+
+#clock {
+    width: 100%;
+    height: 100%;
+}
+
+.clockAppFlex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    bottom: 40px;
+    width: 100%;
+}
+
+.AtimeText {
+    position: absolute;
+    font-weight: bold;
+    color: white;
+    font-size: 1.4rem;
+    visibility: 1;
+    filter: blur(0px);
+    text-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: bottom;
+}
+
+.AdateText {
+    position: relative;
+    font-weight: bold;
+    color: white;
+    font-size: 0.6rem;
+    text-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
+}
+
+.window {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: -1;
+}
+
+.toolbar {
+    position: fixed;
+    z-index: 1;
+    top: 32px;
+    left: 5px;
+    width: 200px;
+    height: 70px;
+    align-items: center;
+    justify-content: space-around;
+    padding: 1px;
+    border-radius: 7px;
+    background-color: rgba(30, 30, 30, 0.6);
+    backdrop-filter: blur(4px);
+}
+
+.t1 {
+    font-size: 8.5px;
+    font-weight: bold;
+    color: white;
+    position: absolute;
+    bottom: -55px;
+    left: 8px;
+}
+
+.t2 {
+    font-size: 8.5px;
+    font-weight: bold;
+    color: white;
+    position: absolute;
+    bottom: -33px;
+    left: 85px;
+}
+
+.t3 {
+    font-size: 8.5px;
+    font-weight: bold;
+    color: white;
+    position: absolute;
+    bottom: -3px;
+    left: 164px;
+}
+
+.divider1 {
+    width: 2px;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.4);
+    filter: blur(0.7px);
+    position: absolute;
+    left: 50px;
+    top: 6.5px;
+}
+
+.divider2 {
+    width: 2px;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.4);
+    position: absolute;
+    right: 50px;
+    top: 6.5px;
+    filter: blur(0.7px);
+}
+
+.toolbar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(50, 50, 50, 0.5);
+    filter: blur(12px);
+    z-index: -1;
+}
+
+.togglePen {
+    border-radius: 7px;
+    position: relative;
+    bottom: 45px;
+    right: -163.5px;
+    width: 25px;
+    height: 25px;
+    background-image: url('https://raw.githubusercontent.com/immobilesmile70/Windows-12-web/main/assets/Vector%20Icons/Paint/Eraser(paint).webp?raw=true');
+    background-size: 25px 25px;
+    background-position: center;
+    border: none;
+    background-color: transparent;
+}
+
+.clearAll {
+    position: relative;
+    top: -21px;
+    right: -132.5px;
+    border-radius: 7px;
+    width: 25px;
+    height: 25px;
+    background-image: url('https://raw.githubusercontent.com/immobilesmile70/Windows-12-web/main/assets/Vector%20Icons/Paint/Clear%20All%20(paint).webp?raw=true');
+    background-size: 25px 25px;
+    background-position: center;
+    border: none;
+    background-color: transparent;
+}
+
+canvas {
+    flex: 1;
+    touch-action: none;
+    width: 100%;
+    height: 100%;
+}
+
+.canva {
+    background-color: rgba(51, 51, 51, 1);
+    width: 100%;
+    height: 100%;
+    transition: width 0.15s ease, height 1.5s ease;
+    position: relative;
+    top: 25px;
+}
+
+.penColor {
+    position: relative;
+    top: 0px;
+    width: 20px;
+    height: 20px;
+    background-color: grey;
+    border: none;
+    border-radius: 7px;
+    padding: 0;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+    left: 12px;
+}
+
+.eraserColor {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    background-color: grey;
+    border: none;
+    border-radius: 7px;
+    padding: 0;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+    bottom: -27px;
+    left: -12.5px;
+    z-index: 100;
+    pointer-events: auto;
+}
+
+.penSize {
+    position: relative;
+    top: -25px;
+    left: 67px;
+    width: 60px;
+    height: 10px;
+    background-color: null;
+    border: none;
+    --value: 20%;
+}
+
+.eraserSize {
+    position: relative;
+    bottom: 0px;
+    left: -2.5px;
+    width: 60px;
+    height: 10px;
+    background-color: null;
+    border: none;
+    --value: 20%;
+}
+
+.penSize::-webkit-slider-runnable-track,
+.eraserSize::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 8px;
+    background: #444;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+}
+
+.penSize::-webkit-slider-runnable-track,
+.eraserSize::-webkit-slider-runnable-track {
+    background: linear-gradient(to right, #00aaff var(--value), #444 var(--value), #444 100%);
+}
+
+.penSize::-moz-range-track,
+.eraserSize::-moz-range-track {
+    width: 100%;
+    height: 8px;
+    background: #444;
+    border-radius: 5px;
+    background-size: var(--value) 100%;
+    background-image: linear-gradient(to right, #00aaff, #00aaff);
+    background-repeat: no-repeat;
+}
+
+.penSize::-webkit-slider-thumb,
+.eraserSize::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.penSize:hover::-webkit-slider-thumb,
+.eraserSize:hover::-webkit-slider-thumb,
+.penSize:focus::-webkit-slider-thumb,
+.eraserSize:hover::-webkit-slider-thumb {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.penSize:focus,
+.eraserSize:focus {
+    outline: none;
+}
+
+.penSize,
+.eraserSize {
+    --value: 50%;
+}
+
+#customPointer {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+    border: 2px solid transparent;
+    background-color: transparent;
+}
+
+.color-section {
+    position: absolute;
+    left: 2px;
+}
+
+.size-section {
+    position: absolute;
+    left: 2px;
+    top: 26px;
+}
+
+.button-section {
+    position: absolute;
+    left: 2px;
+    top: 48px;
+}
+
+:root {
+    --calculator-bg: transparent;
+    --button-bg: rgba(100, 100, 100, 0.25);
+    --button-hover-bg: rgba(45, 45, 45, 0.5);
+    --button-color: white;
+    --button-hover-color: #00aaff;
+    --display-bg: transparent;
+    --text-color: white;
+    --equal-bg: rgba(0, 120, 215, 0.55);
+    --equal-hover-bg: #0062b3;
+    --equal-hover-color: white;
+    --mo-color: rgba(34, 37, 42, 0.5);
+    --mo-hover-color: #0099e6;
+    --ac-bg: rgba(94, 95, 96, 0.5);
+    --ac-hover-color: #383838;
+}
+
+.calculator {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    background-color: transparent;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    position: relative;
+}
+
+#display {
+    width: calc(100% - 10px);
+    height: 24%;
+    font-size: 2.2rem;
+    font-weight: bold;
+    text-align: right;
+    padding: 1px;
+    margin-bottom: 1px;
+    border: none;
+    background-color: var(--display-bg);
+    border-radius: 7px;
+    color: white;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#display:focus,
+#display:active {
+    outline: none;
+}
+
+.cbuttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    width: 100%;
+    height: 120%;
+    flex-grow: 1;
+}
+
+.butto {
+    width: 100%;
+    height: 100%;
+    padding: 1px;
+    font-size: 1.5rem;
+    background-color: var(--button-bg);
+    border: none;
+    border-radius: 7px;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+    color: var(--button-color);
+    transform: scale(1);
+    font-weight: bold;
+}
+
+.butto:hover {
+    background-color: var(--button-hover-bg);
+    color: var(--button-hover-color);
+    border-radius: 9px;
+    transform: scale(1);
+}
+
+.butto:active {
+    transform: scale(0.9);
+}
+
+.zero {
+    grid-column: 1/span 2;
+    width: 100%;
+    height: 100%;
+    padding: 1px;
+    font-size: 20px;
+    background-color: var(--button-bg);
+    border: none;
+    border-radius: 7px;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+    color: var(--button-color);
+    font-weight: bold;
+}
+
+.zero:hover {
+    background-color: var(--button-hover-bg);
+    color: var(--button-hover-color);
+    border-radius: 9px;
+}
+
+.zero:active {
+    transform: scale(0.9);
+}
+
+.equal {
+    grid-row: 4/span 2;
+    grid-column: 4;
+    background-color: var(--equal-bg);
+    color: white;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+    font-size: 20px;
+    width: 100%;
+    height: 100%;
+    padding: 1px;
+    border: none;
+    border-radius: 7px;
+}
+
+.equal:hover {
+    background-color: var(--equal-hover-bg);
+    color: var(--equal-hover-color);
+    border-radius: 9px;
+}
+
+.equal:active {
+    transform: scale(0.9);
+}
+
+.Del,
+.Add,
+.Sub,
+.Multi,
+.Div {
+    background-color: var(--mo-color);
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+    font-size: 20px;
+    width: 100%;
+    height: 100%;
+    padding: 1px;
+    border: none;
+    border-radius: 7px;
+    color: var(--button-color);
+    font-weight: bold;
+}
+
+.Add:hover,
+.Sub:hover,
+.Multi:hover,
+.Div:hover {
+    color: var(--mo-hover-color);
+    border-radius: 9px;
+    background-color: var(--button-hover-bg);
+}
+
+.Add:active,
+.Sub:active,
+.Multi:active,
+.Div:active {
+    transform: scale(0.9);
+}
+
+.AC {
+    background-color: var(--mo-color);
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+    width: 100%;
+    height: 100%;
+    padding: 1px;
+    font-size: 20px;
+    border: none;
+    border-radius: 7px;
+    color: var(--button-color);
+    font-weight: bold;
+}
+
+.AC:hover,
+.Del:hover {
+    color: var(--mo-hover-color);
+    border-radius: 9px;
+    background-color: var(--button-hover-bg);
+}
+
+.AC:active,
+.Del:active {
+    transform: scale(0.9);
+}
+
+
+.calculator-container {
+    position: relative;
+    display: inline-block;
+    transition: transform 0.5s ease;
+    width: 100%;
+    height: 100%;
+}
+
+.eeDev {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    justify-content: center;
+    background: url('https://raw.githubusercontent.com/immobilesmile70/Windows-12-web/main/assets/Backgrounds/Dev%20Photo.jpg?raw=true');
+    background-size: cover;
+    background-position: center;
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    top: 30px;
+    z-index: 22;
+}
+
+.card {
+    width: 250px;
+    height: 250px;
+    background: rgba(20, 20, 20, 0.4);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    text-align: center;
+}
+
+.avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 2px solid rgb(95, 95, 95);
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.user-name {
+    margin-top: 15px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.user-info {
+    margin-top: 2px;
+    font-size: 12px;
+    color: rgb(156, 156, 156);
+}
+
+.user-bio {
+    margin-top: 2px;
+    font-size: 14px;
+}
+
+.github-btn {
+    margin-top: 15px;
+    background-color: #2ea44f;
+    color: black;
+    font-weight: bold;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.github-btn:hover {
+    background-color: #115e21;
+}
+
+.iframe-window-content {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(140, 140, 140, 1);
+}
+
+.conparent {
+    position: fixed;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #0078D7;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    pointer-events: auto;
+    z-index: 10000;
+}
+
+.container {
+    width: 80%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    position: relative;
+}
+
+.conparent.not {
+    display: none;
+    pointer-events: none;
+    z-index: -1;
+}
+
+#sad-face {
+    font-size: 7rem;
+}
+
+#message {
+    font-size: 1.5rem;
+    margin-top: 10px;
+}
+
+#percentage {
+    font-size: 1.2rem;
+    margin-top: 20px;
+}
+
+.qr-error {
+    display: flex;
+    align-items: flex-start;
+    margin-top: 20px;
+}
+
+#qr-code {
+    margin-right: 20px;
+}
+
+#qr-code img {
+    width: 100px;
+    height: 100px;
+}
+
+.error-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100px;
+}
+
+.error-help {
+    font-size: 1rem;
+}
+
+#error-code {
+    font-size: 1rem;
+    margin-top: auto;
+}
+
+.resizer {
+    position: absolute;
+    background: transparent;
+}
+
+.resizer.top-left,
+.resizer.top-right,
+.resizer.bottom-left,
+.resizer.bottom-right {
+    width: 10px;
+    height: 10px;
+    z-index: 10;
+}
+
+.resizer.top-left {
+    top: 0px;
+    left: 0px;
+    cursor: nwse-resize;
+}
+
+.resizer.top-right {
+    top: 0px;
+    right: 0px;
+    cursor: nesw-resize;
+}
+
+.resizer.bottom-left {
+    bottom: 0px;
+    left: 0px;
+    cursor: nesw-resize;
+}
+
+.resizer.bottom-right {
+    bottom: 0px;
+    right: 0px;
+    cursor: nwse-resize;
+}
+
+.resizer.top,
+.resizer.bottom {
+    height: 5px;
+    width: 100%;
+    left: 0;
+}
+
+.resizer.left,
+.resizer.right {
+    width: 5px;
+    height: 100%;
+    top: 0;
+}
+
+.resizer.top {
+    top: 0px;
+    cursor: ns-resize;
+}
+
+.resizer.bottom {
+    bottom: 0px;
+    cursor: ns-resize;
+}
+
+.resizer.left {
+    left: 0px;
+    cursor: ew-resize;
+}
+
+.resizer.right {
+    right: 0px;
+    cursor: ew-resize;
+}
+
+.desktop-grid {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0);
+}
+
+.icon {
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    user-select: none;
+    cursor: default;
+    position: absolute;
+    transition: left 0.2s ease, top 0.2s ease, background 0.25s ease;
+    font-size: 0.6rem;
+    gap: 4px;
+    font-family: 'Segoe UI';
+    color: white;
+    text-shadow: 0 0 8px rgba(0, 0, 0, 1);
+}
+
+.icon:hover {
+    background: rgba(110, 110, 110, 0.4);
+}
+
+.icon.active {
+    background: rgba(180, 180, 180, 0.3);
+}
+
+.icon img {
+    width: 35px;
+    height: 35px;
+}
+
+#wrong_pass {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    display: none;
+}
+
+#wpass_close_btn {
+    color: white;
+    font-size: 1.25rem;
+    background-color: rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+    padding: 7px;
+    margin-top: 10px;
+    padding-left: 23px;
+    padding-right: 23px;
+    transition: background-color 0.25s ease;
+    margin-bottom: 20px;
+    border: none !important;
+}
+
+#wpass_close_btn:hover {
+    background-color: rgba(50, 50, 50, 0.4);
+    transition: background-color 0.25s ease;
+}
+
+.menu-bar {
+    display: flex;
+    background: rgba(30, 30, 30, 0.5);
+    color: white;
+    gap: 5px;
+    height: 26px;
+    padding-left: 5px;
+    text-align: center;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.menu {
+    position: relative;
+    width: 50px;
+    border-radius: 5px;
+    background: rgba(70, 70, 70, 0);
+    font-size: 0.8rem;
+    height: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu:hover {
+    background: rgba(70, 70, 70, 0.4);
+    transition: background 0.3s ease;
+}
+
+.dropdown {
+    display: flex;
+    position: absolute;
+    top: 25px;
+    left: 0.5px;
+    border-radius: 8px;
+    background: rgba(40, 40, 40, 1);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    transform: translateY(-100px) scale(0);
+    transition: transform 0.3s ease, opacity 0.2s ease;
+    pointer-events: none;
+    opacity: 0;
+    flex-direction: column;
+}
+
+.dropdown.show {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0) scale(1);
+    transition: transform 0.3s ease, opacity 0.2s ease;
+}
+
+.dropdown div {
+    padding: 5px 10px;
+    border-radius: 8px;
+    background: transparent;
+    transition: background 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+}
+
+.dropdown img {
+    width: 20px;
+    height: 20px;
+}
+
+.dropdown div:hover {
+    background: rgba(80, 80, 80, 0.7);
+}
+
+#editor {
+    width: calc(100% - 20px);
+    height: calc(100% - 73px);
+    padding: 10px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    color: white;
+    background-color: rgba(60, 60, 60, 0.5);
+    resize: none;
+}
+
+#editor::-webkit-scrollbar {
+    width: 10px;
+}
+
+#editor::-webkit-scrollbar-track {
+    background: #2b2b2b;
+}
+
+#editor::-webkit-scrollbar-thumb {
+    background: #555;
+    border-radius: 50px;
+}
+
+#editor::-webkit-scrollbar-thumb:hover {
+    background: #777;
+}
+
+#footer {
+    background: rgba(30, 30, 30, 0.5);
+    padding: 5px;
+    font-size: 14px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    color: rgba(180, 180, 180, 0.85);
+}
+
+#output {
+    max-height: 100%;
+    overflow-y: auto;
+    white-space: pre-line;
+    text-align: left;
+    font-family: monospace;
+    color: white;
+}
+
+#output::-webkit-scrollbar {
+    width: 10px;
+}
+
+#output::-webkit-scrollbar-track {
+    background: #2b2b2b;
+}
+
+#output::-webkit-scrollbar-thumb {
+    background: #555;
+    border-radius: 50px;
+}
+
+#output::-webkit-scrollbar-thumb:hover {
+    background: #777;
+}
+
+.input-line {
+    display: flex;
+    align-items: center;
+}
+
+.static-text {
+    white-space: pre;
+}
+
+.cmd-input {
+    color: white;
+    border: none;
+    outline: none;
+    width: 100%;
+    font-family: monospace;
+    background: transparent;
+    padding: 0;
+}
+
+#faulty-text {
+    color: white;
+    display: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.quick-settings {
+    width: 200px;
+    background-color: rgba(50, 50, 50, 0.4);
+    backdrop-filter: blur(15px);
+    bottom: 60px;
+    right: 10.5px;
+    opacity: 0;
+    transform: translateY(300px);
+    transition: opacity 0.15s ease, transform 0.25s linear(0 0%, 0 1.8%, 0.01 3.6%, 0.03 6.35%, 0.07 9.1%, 0.13 11.4%, 0.19 13.4%, 0.27 15%, 0.34 16.1%, 0.54 18.35%, 0.66 20.6%, 0.72 22.4%, 0.77 24.6%, 0.81 27.3%, 0.85 30.4%, 0.88 35.1%, 0.92 40.6%, 0.94 47.2%, 0.96 55%, 0.98 64%, 0.99 74.4%, 1 86.4%, 1 100%);
+    border-radius: 7px;
+    padding: 12px 9px 7px 10px;
+    box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.2);
+    z-index: 2500;
+    border: 1px solid rgba(50, 50, 50, 1);
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    position: fixed;
+}
+
+.quick-settings::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(50, 50, 50, 0);
+    filter: blur(0px);
+    z-index: -1;
+}
+
+.quick-settings.show {
+    opacity: 1;
+    transform: translateY(-2px);
+}
+
+.top-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 45%;
+    gap: 5px;
+}
+
+.wifi-bluetooth-group {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.toggle-button {
+    background: rgba(130, 130, 130, 0.3);
+    border: none;
+    padding: 10px;
+    width: 92px;
+    height: 40px;
+    border-radius: 10px;
+    text-align: center;
+    transition: 0.3s;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(100, 100, 100, 0.8);
+}
+
+.toggle-button:hover {
+    background: rgba(133, 137, 139, 0.783);
+}
+
+.toggle-button:active {
+    background: rgba(62, 220, 255, 0.779);
+    transform: scale(0.8);
+}
+
+.toggle-button.active {
+    background: rgba(0, 155, 255, 0.8);
+}
+
+.toggle-button.active:hover {
+    background: rgba(0, 124, 207, 0.8);
+}
+
+.toggle-button.active:active {
+    background: rgba(62, 220, 255, 0.779);
+    transform: scale(0.8);
+}
+
+.slider-group {
+    display: flex;
+    flex-direction: row;
+    gap: 9.5px;
+    padding-left: 6px;
+    margin-right: auto;
+}
+
+.sliderr {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 38px;
+    height: 95px;
+    background: rgba(130, 130, 130, 0.3);
+    border-radius: 10px;
+    writing-mode: vertical-lr;
+    position: relative;
+    border: none;
+    outline: none;
+    overflow: hidden;
+    transform: rotateX(180deg);
+    border: 1px solid rgba(100, 100, 100, 0.8);
+}
+
+.sliderr::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 100%;
+    background: rgba(130, 130, 130, 0.3);
+    border-radius: 10px;
+    position: relative;
+}
+
+.sliderr::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 0%;
+    background: #00aaff;
+    border-radius: 10px;
+    transition: height 0.1s ease-in-out;
+}
+
+.sliderr::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    opacity: 0;
+}
+
+.bottom-section {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    height: 55%;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://raw.githubusercontent.com/immobilesmile70/Windows-12-web/main/assets/Backgrounds/Black%20Overlay.webp?raw=true') center/cover no-repeat;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 99999;
+}

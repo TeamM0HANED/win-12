@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BSOD</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #0078D7;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            color: white;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+	    cursor: none;
+            user-select: none;
+        }
+
+        .container {
+            width: 80%;
+            height: 100%;
+	    background-color: #0078D7;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            color: white;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            position: relative;
+        }
+
+        #sad-face {
+            font-size: 8.4rem;
+        }
+
+        #message {
+            font-size: 1.5rem;
+            margin-top: 10px;
+        }
+
+        #percentage {
+            font-size: 1.2rem;
+            margin-top: 30px;
+        }
+
+        .qr-error {
+            display: flex;
+            align-items: flex-start;
+            margin-top: 20px;
+        }
+
+        #qr-code {
+            margin-right: 21px;
+            margin-top: 15px;
+        }
+
+        #qr-code img {
+            width: 135px;
+            height: 135px;
+        }
+
+        .error-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 125px;
+        }
+
+        .error-help {
+            font-size: 1rem;
+            margin-top: 10px;
+        }
+
+        #error-code {
+            font-size: 1rem;
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="sad-face">:(</div>
+        <div id="message">
+            Your device ran into a problem and needs to restart.
+            We're <br>just collecting some error info, and then we'll restart for you.
+        </div>
+        <div id="percentage">0% complete</div>
+        <div class="qr-error">
+            <div id="qr-code">
+                <img src="https://www.dropbox.com/scl/fi/dtx9bze8xp31n3i07et2w/BSOD.png?rlkey=l3jtcj9e6dlgab1o1ijgw4svk&st=zx5rmsyq&raw=1" alt="QR Code">
+            </div>
+            <div class="error-info">
+                <div class="error-help">For more info about this issue and possible fixes, visit <br> http://windows.com/stopcode </div>
+                <div id="error-code">Stop Code: 0x6EJ69B1E</div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function fakeBSOD(callback) {
+            let progress = 0;
+
+            function updateProgress() {
+                if (progress < 100) {
+                    progress += Math.floor(Math.random() * 3) + 1;
+                    progress = Math.min(progress, 100);
+                    document.getElementById("percentage").innerText = progress + "% complete";
+                    const randomDelay = Math.floor(Math.random() * 600) + 200;
+                    setTimeout(updateProgress, randomDelay);
+                } else {
+                    if (callback) callback(); 
+                }
+            }
+
+            updateProgress(); 
+        }
+
+        function triggerBSOD() {
+            fakeBSOD(() => {
+               // document.body.style.cursor = "default";
+                  triggerBSOD();
+            });
+        }
+
+        document.addEventListener("contextmenu", (event) => {
+            event.preventDefault();
+        });
+
+        triggerBSOD();
+        document.body.style.cursor = "none";
+    </script>
+</body>
+</html>

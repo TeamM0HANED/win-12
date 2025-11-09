@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BSOD 7</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Lucida Console", "Courier New", monospace;
+      background-color: #0000aa; /* Classic BSOD background color */
+      color: #ffffff; /* White text */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: left;
+      overflow: hidden;
+      user-select: none;
+    }
+
+    .bsod-container {
+      width: 98%; /* Fill most of the screen width */
+      height: 98%; /* Fill most of the screen height */
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between; /* Space content evenly vertically */
+      line-height: 1.5;
+      text-align: left;
+    }
+
+    .title {
+      font-size: 18px;
+    }
+
+    .section {
+      flex-grow: 1; /* Distribute sections evenly */
+    }
+
+    .error-code {
+      font-weight: bold;
+    }
+
+    .memory-dump {
+      flex-grow: 1; /* Keep memory dump at the bottom with spacing */
+    }
+
+    .dots {
+      display: inline-block;
+      width: 20px;
+      text-align: left;
+      animation: dots 1s steps(4, end) infinite;
+    }
+
+    @keyframes dots {
+      0% {
+        content: ".";
+      }
+      25% {
+        content: "..";
+      }
+      50% {
+        content: "...";
+      }
+      75% {
+        content: "....";
+      }
+      100% {
+        content: ".";
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="bsod-container">
+    <div class="title">A problem has been detected and Windows has been shut down to prevent damage to your computer.</div>
+    <div class="section">MEMORY_MANAGEMENT</div>
+    <div class="section">
+      If this is the first time you've seen this Stop error screen, restart your computer. If this screen appears again, follow these steps:
+    </div>
+    <div class="section">
+      Check to make sure any new hardware or software is properly installed. If this is a new installation, ask your hardware or software manufacturer for any Windows updates you might need.
+    </div>
+    <div class="section">
+      If problems continue, disable or remove any newly installed hardware or software. Disable BIOS memory options such as caching or shadowing.
+      <br>If you need to use Safe Mode to remove or disable components, restart your computer, press F8 to select Advanced Startup Options, and then select Safe Mode.
+    </div>
+    <div class="section">
+      <strong>Technical information:</strong>
+      <div class="error-code">
+        *** STOP: 0x0000001A (0x0000000000041201, 0xFFFFF68000033978, 0x777000007EB0, 0xFFFFFA800F23EF20)
+      </div>
+    </div>
+    <div class="memory-dump">
+      Collecting data for crash dump<span class="dots"></span><br>
+      Initializing disk for crash dump<span class="dots"></span><br>
+      Beginning dump of physical memory.<br>
+      Dumping physical memory to disk: 100<br>
+      Physical memory dump complete.<br>
+      Contact your system admin or technical support group for further assistance.
+    </div>
+  </div>
+
+    <script>
+        document.body.style.cursor = "none";
+
+        document.addEventListener("contextmenu", (event) => {
+            event.preventDefault();
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Glassmorphism Overlay</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      overflow: hidden;
+      font-family: "Segoe UI", sans-serif;
+      background: rgba(0, 0, 0, 1);
+    }
+
+    .wallpaper {
+      position: absolute;
+      inset: 0;
+      background: url('https://raw.githubusercontent.com/immobilesmile70/Windows-12-web/main/assets/Backgrounds/Wallpaper.jpg?raw=true') center/cover no-repeat;
+      z-index: 0;
+    }
+
+    .glass-pane {
+      position: absolute;
+      inset: 0;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      mask-image: url(https://raw.githubusercontent.com/immobilesmile70/Windows-12-web/main/assets/Backgrounds/wallpaper%20overlay.webp?raw=true);
+      -webkit-mask-image: url(https://raw.githubusercontent.com/immobilesmile70/Windows-12-web/main/assets/Backgrounds/wallpaper%20overlay.webp?raw=true);
+      mask-size: cover;
+      -webkit-mask-size: cover;
+      mask-repeat: no-repeat;
+      mask-position: center;
+      mask-size: cover;
+      z-index: 2;
+    }
+
+
+    .lock-time {
+      font-size: 12rem;
+      font-weight: bolder;
+      color: #d8d8d8ee;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+      z-index: 1;
+      position: relative;
+      margin: 0%;
+      height: 100%;
+      width: 100%;
+      text-align: center;
+    }
+
+    .clock-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 0px;
+      height: 100%;
+      width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wallpaper"></div>
+  <div class="clock-container">
+    <div class="lock-time">12</div>
+    <div class="lock-time" style="z-index: 3;font-size: 11rem;color: #afa1d3;">45</div>
+  </div>
+  <div class="glass-pane">
+  </div>
+</body>
+
+</html>

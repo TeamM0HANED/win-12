@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Windows Spinner Clone</title>
+  <style>
+    body {
+      background: #111;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      cursor: default; /*wait,progress*/
+    }
+
+    @font-face {
+      font-family: 'SegoeBootSpinner';
+      src: url('https://raw.githubusercontent.com/immobilesmile70/Windows-12-web/main/assets/Fonts/segoe_slboot.ttf') format('truetype');
+    }
+
+    .spinner {
+      font-family: 'SegoeBootSpinner';
+      font-size: 3rem;
+      user-select: none;
+font-weight: lighter;
+    }
+  </style>
+</head>
+
+<body>
+  <span id="spinner1" class="spinner"></span>
+  <span id="spinner2" class="spinner"></span>
+
+  <script>
+
+    class Spinner {
+      constructor(element, codepoints, delay = 32.5, idleChar = 0xE100) {
+        this.element = element;
+        this.codepoints = codepoints;
+        this.delay = delay;
+        this.idleChar = idleChar;
+        this.frame = 0;
+        this.intervalId = null;
+      }
+
+      start() {
+        if (this.intervalId) return;
+
+        this.intervalId = setInterval(() => {
+          this.element.textContent = String.fromCharCode(this.codepoints[this.frame]);
+          this.frame = (this.frame + 1) % this.codepoints.length;
+        }, this.delay);
+      }
+
+      stop() {
+        if (!this.intervalId) return;
+
+        clearInterval(this.intervalId);
+        this.intervalId = null;
+        this.element.textContent = String.fromCharCode(this.idleChar);
+        this.frame = 0;
+      }
+    }
+
+    const codepoints = [
+      [0xE100, 0xE109],
+      [0xE10A, 0xE10F],
+      [0xE110, 0xE119],
+      [0xE11A, 0xE11F],
+      [0xE120, 0xE129],
+      [0xE12A, 0xE12F],
+      [0xE130, 0xE139],
+      [0xE13A, 0xE13F],
+      [0xE140, 0xE149],
+      [0xE14A, 0xE14F],
+      [0xE150, 0xE159],
+      [0xE15A, 0xE15F],
+      [0xE160, 0xE169],
+      [0xE16A, 0xE16F],
+      [0xE170, 0xE176]
+    ].flatMap(([start, end]) =>
+      Array.from({ length: end - start + 1 }, (_, i) => start + i)
+    );
+
+const codepointsold = [
+  [0xE052, 0xE059],
+  [0xE05A, 0xE05F],
+  [0xE060, 0xE069],
+  [0xE06A, 0xE06F],
+  [0xE070, 0xE079],
+  [0xE07A, 0xE07F],
+  [0xE080, 0xE089],
+  [0xE08A, 0xE08F],
+  [0xE090, 0xE099],
+  [0xE09A, 0xE09F],
+  [0xE0A0, 0xE0A9],
+  [0xE0AA, 0xE0AF],
+  [0xE0B0, 0xE0B9],
+  [0xE0BA, 0xE0BF],
+  [0xE0C0, 0xE0C9]
+].flatMap(([start, end]) =>
+  Array.from({ length: end - start + 1 }, (_, i) => start + i)
+);
+
+    const spinner1 = new Spinner(document.getElementById('spinner1'), codepointsold);
+    const spinner2 = new Spinner(document.getElementById('spinner2'), codepoints);
+
+    function startSpinner1() {
+      spinner1.start();
+    }
+
+    function stopSpinner1() {
+      spinner1.stop();
+    }
+
+    function startSpinner2() {
+      spinner2.start();
+    }
+
+    function stopSpinner2() {
+      spinner2.stop();
+    }
+
+    startSpinner1();
+    startSpinner2();
+
+  </script>
+</body>
+
+</html>

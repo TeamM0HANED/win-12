@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>AOSP Style Toggle</title>
+  <style>
+    body {
+      user-select: none;
+      background-color: dimgrey;
+    }
+
+    .toggle {
+      width: 60px;
+      height: 30px;
+      border-radius: 15px;
+      background: #ccc;
+      position: relative;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .toggle.on {
+      background: #289eff;
+    }
+
+    .toggle-track {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 15px;
+    }
+
+    .toggle-thumb {
+      width: 26px;
+      height: 26px;
+      background: white;
+      border-radius: 50%;
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      transform: scaleX(1) scaleY(1);
+      transition: left 0.2s ease, transform 0.2s ease;
+    }
+
+    .toggle-thumb:hover {
+      transform: scaleX(1.1) scaleY(1.1);
+    }
+
+    .toggle-thumb:active {
+      transform: scaleX(0.9) scaleY(0.75);
+    }
+
+    .toggle-thumb.dragging {
+      transition: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="toggle" id="winToggle">
+    <div class="toggle-track"></div>
+    <div class="toggle-thumb" id="winThumb"></div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById("winToggle");
+    const thumb = document.getElementById("winThumb");
+
+    let isDragging = false;
+    let dragOffset = 0;
+
+    const updateThumbPosition = (value) => {
+      thumb.style.left = `${value}px`;
+    };
+
+    const toggleSwitch = (state) => {
+      toggle.classList.toggle("on", state);
+      updateThumbPosition(state ? 32 : 2);
+    };
+
+    toggle.addEventListener("mousedown", (e) => {
+      isDragging = true;
+      setTimeout(() => { thumb.classList.add("dragging"); }, 200);
+
+      const thumbRect = thumb.getBoundingClientRect();
+      dragOffset = e.clientX - thumbRect.left;
+    });
+
+    document.addEventListener("mousemove", (e) => {
+      if (!isDragging) return;
+
+      const toggleRect = toggle.getBoundingClientRect();
+      let newLeft = e.clientX - toggleRect.left - dragOffset;
+
+      newLeft = Math.min(Math.max(newLeft, 2), 32);
+      updateThumbPosition(newLeft);
+    });
+
+    document.addEventListener("mouseup", () => {
+      if (!isDragging) return;
+      isDragging = false;
+      setTimeout(() => { thumb.classList.remove("dragging"); }, 200);
+
+      const currentLeft = parseInt(thumb.style.left, 10);
+      const state = currentLeft > 22;
+      toggleSwitch(state);
+    });
+
+    toggle.addEventListener("click", (e) => {
+      if (isDragging) return;
+      const isOn = toggle.classList.contains("on");
+      toggleSwitch(!isOn);
+    });
+
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+{
+    "name": "Windows 12",
+    "short_name": "Windows",
+    "start_url": "./index.html",
+    "display": "fullscreen",
+    "background_color": "#111111", 
+    "theme_color": "#111111",      
+    "description": "This is a browser based clone of the windows with some new design choices.",
+    "icons": [
+      {
+        "src": "https://raw.githubusercontent.com/immobilesmile70/Windows-12-web/main/assets/android-chrome-192x192.png",
+        "sizes": "192x192",
+        "type": "image/png",
+        "purpose": "any maskable"
+      },
+      {
+        "src": "https://raw.githubusercontent.com/immobilesmile70/Windows-12-web/main/assets/android-chrome-512x512.png",
+        "sizes": "512x512",
+        "type": "image/png",
+        "purpose": "any maskable"
+      }
+    ]
+  }
+  
